@@ -8,6 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
+                "-std=c++17",
                 "-o",
                 "../bin/main",
                 "hash.cpp"
