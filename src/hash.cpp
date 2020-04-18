@@ -1,8 +1,6 @@
+/**
+ * @file hash.cpp
+ * @brief The main source file for the HashTable Class
+ */
+
 #include "hash.hpp"
-
-
-int main()
-{
-    std::cout << "Hello World!" << std::endl;
-    return 0;
-}
