@@ -1,3 +1,8 @@
+/**
+ * @file hash.hpp
+ * @brief The main header file for the HashTable Class
+ */
+
 #ifndef HASH_HPP
 #define HASH_HPP
 

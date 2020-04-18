@@ -11,7 +11,10 @@
                 "-std=c++17",
                 "-o",
                 "../bin/main",
-                "hash.cpp"
+                "main.cpp",
+                "hash.cpp",
+                "LinkedList.cpp",
+                "BST.cpp"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/src"
