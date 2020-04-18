@@ -1,4 +1,4 @@
 # CSCI2270-FinalProject
 CU Boulder - CSCI2270 Data Structures and Algorithms Final Project
-\nMatthew Januszewski
-\nJason Popich
+Matthew Januszewski
+Jason Popich
