@@ -4,7 +4,7 @@
  */
 
 #include "BST.hpp"
-#define COUNT 10
+#define SPACE_COUNT 10
 
 BST::BST()
 {
@@ -13,7 +13,7 @@ BST::BST()
 
 BST::~BST()
 {
-     destroyNode(BST::root);
+    destroyNode(BST::root);
 }
 
 Node* BST::getRoot()
@@ -22,19 +22,18 @@ Node* BST::getRoot()
 }
 
 void BST::destroyNode(Node *currNode){
-     if(currNode != nullptr)
-     {
-         destroyNode(currNode->left);
-         destroyNode(currNode->right);
-
-         delete currNode;
-         currNode = nullptr;
-     }
+    if(currNode != nullptr)
+    {
+       destroyNode(currNode->left);
+       destroyNode(currNode->right);
+       
+       delete currNode;
+       currNode = nullptr;
+    }
  }
 
 /*
-Prints a binary tree in a 2D fashion.
-Note: The image of the tree is left rotated by 90 degrees.
+    Prints a binary tree in a 2D fashion.
 */
 void BST::print2DUtilHelper(Node *currNode, int space)
 {
@@ -45,7 +44,7 @@ void BST::print2DUtilHelper(Node *currNode, int space)
     }
 
     // Increase distance between levels
-    space += COUNT;
+    space += SPACE_COUNT;
 
     // Process right child first
     print2DUtilHelper(currNode->right, space);
@@ -53,7 +52,7 @@ void BST::print2DUtilHelper(Node *currNode, int space)
     // Print current node after space
     // count
     printf("\n");
-    for (int i = COUNT; i < space; i++)
+    for (int i = SPACE_COUNT; i < space; i++)
     {
         printf(" ");
     }
@@ -73,7 +72,7 @@ void BST::print2DUtil(int space)
 //---------------------------- INSERT NODE IN THE TREE --------------------------------------
 
 /**
-Create a node with key as data
+    Create a node with key as data
 **/
 Node* BST::createNode(int data)
 {
@@ -85,8 +84,7 @@ Node* BST::createNode(int data)
 }
 
 /**
-This function will add the data in the tree rooted at currNode.
-We will call this function from addNode.
+    This function will add the data in the tree rooted at currNode.
 **/
 Node* BST:: addNodeHelper(Node* currNode, int data)
 {
@@ -112,32 +110,23 @@ void BST:: addNode(int data)
 }
 
 //-----------------------------------------PRINT TREE (INORDER TRAVERSAL)--------------------------------
-
-/** This function will traverse the tree in-order and print out the node elements.
-printTree() function will call this function.
-**/
-
 void BST:: printTreeHelper(Node* currNode)
 {
-     if(currNode)
-     {
-        printTreeHelper( currNode->left);
-        std::cout << " "<< currNode->key;
-        printTreeHelper( currNode->right);
-     }
- }
+    if(currNode)
+    {
+       printTreeHelper( currNode->left);
+       std::cout << " "<< currNode->key;
+       printTreeHelper( currNode->right);
+    }
+}
 
 void BST:: printTree()
 {
-     printTreeHelper(BST::root);
-     std::cout << std::endl;
+    printTreeHelper(BST::root);
+    std::cout << std::endl;
 }
 
  //------------------------------------------------SEARCH A KEY------------------------------------------
- /** This function will search the data in a tree
-     We will call this function from searchKey.
- **/
-
 Node* BST::searchKeyHelper(Node* currNode, int data)
 {
     if(currNode == nullptr)
