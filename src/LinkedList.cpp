@@ -13,7 +13,7 @@ LinkedList::LinkedList()
 
 LinkedList::~LinkedList()
 {
-    // Iterate through the LL and delete dynamic nodes
+    // Iterate through the LL and delete all dynamic nodes
     Node *current = LinkedList::head;
     Node *next = nullptr;
 

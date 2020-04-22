@@ -13,17 +13,17 @@ struct Node
 
 class LinkedList
 {
-    private:
-        Node *head;
+private:
+    Node *head;
 
-    public:
-        LinkedList();
-        ~LinkedList();
-        void insert(Node *prev, int newKey); // Inserts after prev
-        void insert(int newKey); // Inserts at the end of the list
-        Node *search(int key);
-        void displayAll(); // Displays all nodes in the list
-        void displayFirst100(); // Displays the first 100 nodes in the list
+public:
+    LinkedList();
+    ~LinkedList();
+    void insert(Node *prev, int newKey); // Inserts after prev
+    void insert(int newKey);             // Inserts at the end of the list
+    Node *search(int key);
+    void displayAll();      // Displays all nodes in the list
+    void displayFirst100(); // Displays the first 100 nodes in the list
 };
 
 #endif
