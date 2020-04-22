@@ -16,29 +16,32 @@ struct node
 {
     int key;
     struct node* next;
+    struct node* prev;
 };
 
 class HashTable
 {
-    int tableSize;  // No. of buckets (linked lists)
+    private:
+        int tableSize;  // No. of buckets (linked lists)
 
-    // Pointer to an array containing buckets
-    node* *table;
-    int numOfcolision =0;
-    node* createNode(int key, node* next);
-public:
-    HashTable(int bsize);  // Constructor
+        // Pointer to an array containing buckets
+        node* *table;
+        int numOfcolision = 0;
+        node* createNode(int key, node* next);
 
-    // inserts a key into hash table
-    bool insertItem(int key);
+    public:
+        HashTable(int bsize);  // Constructor
 
-    // hash function to map values to key
-    unsigned int hashFunction(int key);
+        // inserts a key into hash table
+        bool insertItem(int key);
 
-    void printTable();
-    int getNumOfCollision();
+        // hash function to map values to key
+        unsigned int hashFunction(int key);
 
-    node* searchItem(int key);
+        void printTable();
+        int getNumOfCollision();
+
+        node* searchItem(int key);
 };
 
 #endif
