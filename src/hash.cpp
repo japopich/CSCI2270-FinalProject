@@ -5,7 +5,6 @@
 
 #include "hash.hpp"
 
-
 HashTable::HashTable(int bsize)
 {
 
