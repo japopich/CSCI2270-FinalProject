@@ -1,10 +1,10 @@
 /**
- * @file main.hpp
- * @brief The main header file for the code base
+ * @file timing.hpp
+ * @brief The timing header file for the timing class
  */
 
-#ifndef _MAIN_HPP_
-#define _MAIN_HPP_
+#ifndef _TIMING_HPP_
+#define _TIMING_HPP_
 
 #include "hash.hpp"
 #include "LinkedList.hpp"
@@ -20,7 +20,7 @@ class Timing
 {
     private:
         std::ifstream file;                     // Our file ifstream object
-        std::vector<int> file_content;          // Will hold all the data to be used with every methd
+        std::vector<int> file_content;          // Will hold all the data to be used with every method
 
         // Variables to record timing in 100 sample intervals
         float insert[400];

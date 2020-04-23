@@ -12,6 +12,7 @@
                 "-o",
                 "../bin/main",
                 "main.cpp",
+                "timing.cpp",
                 "hash.cpp",
                 "LinkedList.cpp",
                 "BST.cpp"
