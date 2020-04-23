@@ -5,6 +5,7 @@
 
 #include "main.hpp"
 
+// Constructor
 Timing::Timing()
 {
 
@@ -55,9 +56,25 @@ Timing::Timing(std::string file)
     Timing::file.close();
 }
 
+// Destructor
 Timing::~Timing()
 {
 
+}
+
+void Timing::timing_BST()
+{
+
+}
+
+void Timing::timing_LL()
+{
+
+}
+
+void Timing::timing_Hash()
+{
+    
 }
 
 int main(int argc, char **argv)
