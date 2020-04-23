@@ -4,6 +4,7 @@
  */
 
 #include "hash.hpp"
+#include <math.h>
 
 HashTable::HashTable(int bsize)
 {
@@ -37,12 +38,14 @@ bool HashTable::insertLLitem(int key)
     if(HashTable::table[nodeIndex] == nullptr)
     {
         newNode->prev = nullptr;
+        newNode->next = nullptr;
         HashTable::table[nodeIndex] = newNode;
         return true;
     }
     else // else append to chained LinkedList
     {
-        HashTable::numOfcollision++; // Add to collision....
+        HashTable::numOfcollision++; // Add to num of collisions...
+
         // Set the node at the Hash Table index as our LinkedList (LL) head
         node* head = HashTable::table[nodeIndex];
 
@@ -75,12 +78,71 @@ bool HashTable::insertLLitem(int key)
 
 bool HashTable::insertLinearitem(int key)
 {
+    int nodeIndex = HashTable::hashFunction(key);
+    node* newNode = HashTable::createNode(key, nullptr);
 
+    // If no node exists at that index append newNode
+    if(HashTable::table[nodeIndex] == nullptr)
+    {
+        newNode->prev = nullptr;
+        newNode->next = nullptr;
+        HashTable::table[nodeIndex] = newNode;
+        return true;
+    }
+    else // else start the Linear Collision Method
+    {
+        HashTable::numOfcollision++; // Add to the num of collisions
+
+        // Loop until the new node is placed
+        while (true)
+        {
+            nodeIndex++;
+            if(nodeIndex > HashTable::tableSize)
+            {
+                nodeIndex = 0;
+            }
+            if(HashTable::table[nodeIndex] == nullptr)
+            {
+                HashTable::table[nodeIndex] = newNode;
+                return true;
+            }
+        }
+    }
 }
 
 bool HashTable::insertQuaditem(int key)
 {
+    int nodeIndex = HashTable::hashFunction(key);
+    node* newNode = HashTable::createNode(key, nullptr);
 
+    // If no node exists at that index append newNode
+    if(HashTable::table[nodeIndex] == nullptr)
+    {
+        newNode->prev = nullptr;
+        newNode->next = nullptr;
+        HashTable::table[nodeIndex] = newNode;
+        return true;
+    }
+    else // else start the Quadratic Collision Method
+    {
+        HashTable::numOfcollision++; // Add to the num of collisions
+        
+        // Loop until the new node is placed
+        int index = 0;
+        while(true)
+        {
+            index = nodeIndex + pow(index++,2);
+            if(index > HashTable::tableSize)
+            {
+                index = 0;
+            }
+            if(HashTable::table[index] == nullptr)
+            {
+                HashTable::table[index] = newNode;
+                return true;
+            }
+        }
+    }
 }
 
 node* HashTable::searchLLItem(int key)
