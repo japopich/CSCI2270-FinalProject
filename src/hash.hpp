@@ -16,6 +16,7 @@ struct node
 {
     int key;
     struct node* next;
+    struct node* prev;
 };
 
 class HashTable
@@ -25,21 +26,28 @@ class HashTable
 
         // Pointer to an array containing buckets
         node* *table;
-        int numOfcolision =0;
+  
+        int numOfcollision = 0;
         node* createNode(int key, node* next);
+
     public:
-        HashTable(int bsize);  // Constructor
+        HashTable(int bsize);               // Constructor -----
+        ~HashTable();                       // Destructor -----
 
         // inserts a key into hash table
-        bool insertItem(int key);
+        bool insertLLitem(int key);         // Chaining collision avoidance method implemented
+        bool insertLinearitem(int key);     // Linear Probing collision avoidance method implemented
+        bool insertQuaditem(int key);       // Quadratic Probing collision avoidance method implemented
 
         // hash function to map values to key
         unsigned int hashFunction(int key);
 
-        void printTable();
+        void printTable();                  // -----
         int getNumOfCollision();
 
-        node* searchItem(int key);
+        node* searchLLItem(int key);        // Search using the Chain collision avoidance method
+        node* searchLinearItem(int key);    // Search using the Linear collision avoidance method -----
+        node* searchQuadItem(int key);      // Search using the Quad collision avoidance method -----
 };
 
 #endif
