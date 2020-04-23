@@ -200,12 +200,11 @@ node *HashTable::searchLinearItem(int key)
     // Call the hash function to find the key's hash representation
     int hashCode = HashTable::hashFunction(key);
 
-    // Index into the hash table and find the node object corrosponding to key using linear probing
+    // Index into the hash table and find the node object corresponding to key using linear probing
     if (HashTable::table[hashCode]->key == key)
     {
         return HashTable::table[hashCode];
     }
-
     else
     {
         int i = hashCode + 1;
@@ -220,7 +219,6 @@ node *HashTable::searchLinearItem(int key)
                 }
             }
         }
-
         i = (i + 1) % HashTable::tableSize;
     }
 }
@@ -230,12 +228,11 @@ node *HashTable::searchQuadItem(int key)
     // Call the hash function to find the key's hash representation
     int hashCode = HashTable::hashFunction(key);
 
-    // Index into the hash table and find the node object corrosponding to key using quadratic probing
+    // Index into the hash table and find the node object corresponding to key using quadratic probing
     if (HashTable::table[hashCode]->key == key)
     {
         return HashTable::table[hashCode];
     }
-
     else
     {
         int j = 1;
