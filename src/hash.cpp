@@ -118,11 +118,7 @@ bool HashTable::insertLinearitem(int key)
         // Loop until the new node is placed
         while (true)
         {
-            nodeIndex++;
-            if(nodeIndex > HashTable::tableSize)
-            {
-                nodeIndex = 0;
-            }
+            nodeIndex = nodeIndex++ % HashTable::tableSize;
             if(HashTable::table[nodeIndex] == nullptr)
             {
                 HashTable::table[nodeIndex] = newNode;
@@ -148,16 +144,13 @@ bool HashTable::insertQuaditem(int key)
     else // else start the Quadratic Collision Method
     {
         HashTable::numOfcollision++; // Add to the num of collisions
-        
+
         // Loop until the new node is placed
         int index = 0;
         while(true)
         {
             index = nodeIndex + pow(index++,2);
-            if(index > HashTable::tableSize)
-            {
-                index = 0;
-            }
+            index = index % HashTable::tableSize;
             if(HashTable::table[index] == nullptr)
             {
                 HashTable::table[index] = newNode;
