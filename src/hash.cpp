@@ -10,6 +10,11 @@ HashTable::HashTable(int bsize)
 
 }
 
+HashTable::~HashTable()
+{
+    
+}
+
 node* HashTable::createNode(int key, node* next)
 {
     node* newNode = new node;
@@ -23,7 +28,7 @@ unsigned int HashTable::hashFunction(int key)
     return key % HashTable::tableSize;
 }
 
-bool HashTable::insertItem(int key)
+bool HashTable::insertLLitem(int key)
 {
     int nodeIndex = HashTable::hashFunction(key);
     node* newNode = HashTable::createNode(key, nullptr);
@@ -37,6 +42,7 @@ bool HashTable::insertItem(int key)
     }
     else // else append to chained LinkedList
     {
+        HashTable::numOfcollision++; // Add to collision....
         // Set the node at the Hash Table index as our LinkedList (LL) head
         node* head = HashTable::table[nodeIndex];
 
@@ -67,7 +73,17 @@ bool HashTable::insertItem(int key)
     }
 }
 
-node* HashTable::searchItem(int key)
+bool HashTable::insertLinearitem(int key)
+{
+
+}
+
+bool HashTable::insertQuaditem(int key)
+{
+
+}
+
+node* HashTable::searchLLItem(int key)
 {
     // Get the index of where the key should be
     int nodeIndex = HashTable::hashFunction(key);
@@ -94,6 +110,16 @@ node* HashTable::searchItem(int key)
     return nullptr; // If key not found at all return nullptr
 }
 
+node* HashTable::searchLinearItem(int key)
+{
+
+}
+
+node* HashTable::searchQuadItem(int key)
+{
+    
+}
+
 void HashTable::printTable()
 {
 
@@ -101,5 +127,5 @@ void HashTable::printTable()
 
 int HashTable::getNumOfCollision()
 {
-
+    return HashTable::numOfcollision;
 }
