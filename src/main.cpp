@@ -60,8 +60,9 @@ Timing::~Timing()
 
 }
 
-int main()
+int main(int argc, char **argv)
 {
-    std::cout << "Hello World!" << std::endl;
+    Timing dataSet1("../DataSets/dataSetA.csv");
+    Timing dataSet2("../DataSets/dataSetB.csv");
     return 0;
 }
