@@ -118,7 +118,8 @@ bool HashTable::insertLinearitem(int key)
         // Loop until the new node is placed
         while (true)
         {
-            nodeIndex = nodeIndex++ % HashTable::tableSize;
+            nodeIndex++;
+            nodeIndex = nodeIndex % HashTable::tableSize;
             if(HashTable::table[nodeIndex] == nullptr)
             {
                 HashTable::table[nodeIndex] = newNode;
@@ -214,6 +215,7 @@ node *HashTable::searchLinearItem(int key)
         }
         i = (i + 1) % HashTable::tableSize;
     }
+    return nullptr;
 }
 
 node *HashTable::searchQuadItem(int key)
@@ -245,6 +247,7 @@ node *HashTable::searchQuadItem(int key)
             j++;
         }
     }
+    return nullptr;
 }
 
 void HashTable::printTable()
