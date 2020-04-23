@@ -30,8 +30,8 @@ private:
     node *createNode(int key, node *next);
 
 public:
-    HashTable(int size); // Constructor -----
-    ~HashTable();         // Destructor -----
+    HashTable(int size); // Constructor
+    ~HashTable();         // Destructor
 
     // inserts a key into hash table
     bool insertLLitem(int key);     // Chaining collision avoidance method implemented

@@ -133,14 +133,98 @@ node *HashTable::searchLLItem(int key)
 
 node *HashTable::searchLinearItem(int key)
 {
+    // Call the hash function to find the key's hash representation
+    int hashCode = HashTable::hashFunction(key);
+
+    // Index into the hash table and find the node object corrosponding to key using linear probing
+    if (HashTable::table[hashCode]->key == key)
+    {
+        return HashTable::table[hashCode];
+    }
+
+    else
+    {
+        int i = hashCode + 1;
+        // Iterate through the hash table until the node is found
+        while (i != hashCode)
+        {
+            if (HashTable::table[i] != nullptr)
+            {
+                if (HashTable::table[i]->key == key)
+                {
+                    return HashTable::table[i];
+                }
+            }
+        }
+
+        i = (i + 1) % HashTable::tableSize;
+    }
 }
 
 node *HashTable::searchQuadItem(int key)
 {
+    // Call the hash function to find the key's hash representation
+    int hashCode = HashTable::hashFunction(key);
+
+    // Index into the hash table and find the node object corrosponding to key using quadratic probing
+    if (HashTable::table[hashCode]->key == key)
+    {
+        return HashTable::table[hashCode];
+    }
+
+    else
+    {
+        int j = 1;
+        int i = hashCode + 1;
+        // Iterate through the hash table until the node is found
+        while (true)
+        {
+            if (HashTable::table[i] != nullptr)
+            {
+                if (HashTable::table[i]->key == key)
+                {
+                    return HashTable::table[i];
+                }
+            }
+            
+            i = (i + (j * j)) % HashTable::tableSize;
+        }
+    }
 }
 
 void HashTable::printTable()
 {
+    // Prints the contents of the hash table
+
+    if (HashTable::table == nullptr)
+    {
+        std::cout << "Hash Table is Empty" << std::endl;
+        return;
+    }
+
+    std::cout << "Contents of Hash Table: " << std::endl;
+
+    // Print the contents of the hash table with nodes stored at the same index of table on the same line
+    for (int i = 0; i < HashTable::tableSize; i++)
+    {
+        if (HashTable::table[i] != nullptr)
+        {
+            // Iterate through the nodes stored at i and print them
+            node *curr = table[i];
+            node *prev = nullptr;
+            while (curr != nullptr)
+            {
+                prev = curr;
+                curr = curr->next;
+                
+                std::cout << curr->key << ", ";
+            }
+
+            std::cout << std::endl;
+        }
+    }
+
+    return;
 }
 
 int HashTable::getNumOfCollision()
