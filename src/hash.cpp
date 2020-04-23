@@ -242,6 +242,7 @@ node *HashTable::searchQuadItem(int key)
             }
             
             i = (i + (j * j)) % HashTable::tableSize;
+            j++;
         }
     }
 }
