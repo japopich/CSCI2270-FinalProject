@@ -36,8 +36,8 @@ class HashTable
 
         // inserts a key into hash table
         bool insertLLitem(int key);         // Chaining collision avoidance method implemented
-        bool insertLinearitem(int key);     // Linear Probing collision avoidance method implemented -----
-        bool insertQuaditem(int key);       // Quadratic Probing collision avoidance method implemented -----
+        bool insertLinearitem(int key);     // Linear Probing collision avoidance method implemented
+        bool insertQuaditem(int key);       // Quadratic Probing collision avoidance method implemented
 
         // hash function to map values to key
         unsigned int hashFunction(int key);
