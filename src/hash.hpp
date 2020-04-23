@@ -9,45 +9,44 @@
 #include <string>
 #include <iostream>
 
-
 using namespace std;
 
 struct node
 {
     int key;
-    struct node* next;
-    struct node* prev;
+    struct node *next;
+    struct node *prev;
 };
 
 class HashTable
 {
-    private:
-        int tableSize;  // No. of buckets (linked lists)
+private:
+    int tableSize; // No. of buckets (linked lists)
 
-        // Pointer to an array containing buckets
-        node* *table;
-  
-        int numOfcollision = 0;
-        node* createNode(int key, node* next);
+    // Pointer to an array containing buckets
+    node **table;
 
-    public:
-        HashTable(int bsize);               // Constructor -----
-        ~HashTable();                       // Destructor -----
+    int numOfcollision;
+    node *createNode(int key, node *next);
 
-        // inserts a key into hash table
-        bool insertLLitem(int key);         // Chaining collision avoidance method implemented
-        bool insertLinearitem(int key);     // Linear Probing collision avoidance method implemented
-        bool insertQuaditem(int key);       // Quadratic Probing collision avoidance method implemented
+public:
+    HashTable(int size); // Constructor
+    ~HashTable();         // Destructor
 
-        // hash function to map values to key
-        unsigned int hashFunction(int key);
+    // inserts a key into hash table
+    bool insertLLitem(int key);         // Chaining collision avoidance method implemented
+    bool insertLinearitem(int key);     // Linear Probing collision avoidance method implemented
+    bool insertQuaditem(int key);       // Quadratic Probing collision avoidance method implemented
 
-        void printTable();                  // -----
-        int getNumOfCollision();
+    // hash function to map values to key
+    unsigned int hashFunction(int key);
 
-        node* searchLLItem(int key);        // Search using the Chain collision avoidance method
-        node* searchLinearItem(int key);    // Search using the Linear collision avoidance method -----
-        node* searchQuadItem(int key);      // Search using the Quad collision avoidance method -----
+    void printTable(); // -----
+    int getNumOfCollision();
+
+    node *searchLLItem(int key);     // Search using the Chain collision avoidance method
+    node *searchLinearItem(int key); // Search using the Linear collision avoidance method -----
+    node *searchQuadItem(int key);   // Search using the Quad collision avoidance method -----
 };
 
 #endif
