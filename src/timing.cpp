@@ -99,15 +99,19 @@ void Timing::timing_LL()
 
         // *** Store insert time ***
 
-        // Search for 100 elements and time the operation
-        int index = 0;
+        // Search for 100 random elements and time the operation
+        int randomIndices[100];
+        for (int i = 0; i < 100; i++)
+        {
+            randomIndices[i] = rand() % (k * 100);
+        }
+
         int key = 0;
         LLNode *node = nullptr;
         start = std::chrono::steady_clock::now();
         for (int i = k * 100; i < (k + 1) * 100; i++)
         {
-            index = rand() % (k * 100);
-            key = file_content[index];
+            key = file_content[randomIndices[i]];
 
             node = list.search(key);
 
