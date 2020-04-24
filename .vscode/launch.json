@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/debug.out",
+            "cwd": "${workspaceFolder}/bin",
+            "args": [
+                
+                // Add command line arguments seperated by commas in quotes, even if they're not strings
+            ]
+        }
+    ]
+}

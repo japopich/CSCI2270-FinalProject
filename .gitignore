@@ -9,4 +9,6 @@
 /bin/LL_out.csv
 /bin/QuadHash_out.csv
 
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
