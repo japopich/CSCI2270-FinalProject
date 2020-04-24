@@ -1,0 +1,11 @@
+*.code-workspace
+*.json
+/bin/main
+/bin/debug.out
+/bin/debug.out.dSYM
+/bin/BST_out.csv
+/bin/LinHash_out.csv
+/bin/LLHash_out.csv
+/bin/LL_out.csv
+
+.vscode/
