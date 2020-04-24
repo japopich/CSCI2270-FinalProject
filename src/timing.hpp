@@ -19,6 +19,8 @@
 class Timing
 {
     private:
+        std::string id;                         // Our object ID for file output
+
         std::ifstream file;                     // Our file ifstream object
         std::vector<int> file_content;          // Will hold all the data to be used with every method
 
@@ -36,7 +38,7 @@ class Timing
 
     public:
         Timing();                               // Default Constructor
-        Timing(std::string file);               // File Loading Constructor
+        Timing(std::string file, int id);       // File Loading Constructor
 
         ~Timing();                              // Default Destructor
 

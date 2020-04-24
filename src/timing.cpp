@@ -12,7 +12,7 @@ Timing::Timing()
 
 // File Loading Constructor
 // Places all the contents of the file into a vector for usage
-Timing::Timing(std::string file)
+Timing::Timing(std::string file, int ID)
 {
     // Open the file
     Timing::file.open(file);
@@ -53,6 +53,9 @@ Timing::Timing(std::string file)
 
     // Close the file
     Timing::file.close();
+
+    // Set Class ID
+    Timing::id = ID;
 
     // Seed the random number generator with computer's time
     std::srand(std::time(nullptr));
@@ -395,7 +398,8 @@ void Timing::timing_LLHash()
 
 void Timing::LL_outHelper()
 {
-    std::ofstream LL_out("LL_out.csv");
+    std::string outFile = "LL_out_" + Timing::id + ".csv";
+    std::ofstream LL_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[0][0].size(); i++)
@@ -409,7 +413,8 @@ void Timing::LL_outHelper()
 
 void Timing::BST_outHelper()
 {
-    std::ofstream BST_out("BST_out.csv");
+    std::string outFile = "BST_out_" + Timing::id + ".csv";
+    std::ofstream BST_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[1][0].size(); i++)
@@ -423,7 +428,8 @@ void Timing::BST_outHelper()
 
 void Timing::LLHash_outHelper()
 {
-    std::ofstream LLHash_out("LLHash_out.csv");
+    std::string outFile = "LLHash_out_" + Timing::id + ".csv";
+    std::ofstream LLHash_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[2][0].size(); i++)
@@ -437,7 +443,8 @@ void Timing::LLHash_outHelper()
 
 void Timing::LinHash_outHelper()
 {
-    std::ofstream LinHash_out("LinHash_out.csv");
+    std::string outFile = "LinHash_out_" + Timing::id + ".csv";
+    std::ofstream LinHash_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[3][0].size(); i++)
@@ -451,7 +458,8 @@ void Timing::LinHash_outHelper()
 
 void Timing::QuadHash_outHelper()
 {
-    std::ofstream QuadHash_out("QuadHash_out.csv");
+    std::string outFile = "QuadHash_out_" + Timing::id + ".csv";
+    std::ofstream QuadHash_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[4][0].size(); i++)

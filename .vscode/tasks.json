@@ -30,21 +30,22 @@
             "type": "shell",
             "command": "clang++",
             "args": [
-              "-std=c++17",
-              "-stdlib=libc++",
-              "${workspaceFolder}/src/LinkedList.cpp",
-              "${workspaceFolder}/src/BST.cpp",
-              "${workspaceFolder}/src/hash.cpp",
-              "${workspaceFolder}/src/timing.cpp",
-              "${workspaceFolder}/src/main.cpp",
-              "-o",
-              "${workspaceFolder}/bin/debug.out",
-              "--debug"
+                "-std=c++17",
+                "-stdlib=libc++",
+                "${workspaceFolder}/src/LinkedList.cpp",
+                "${workspaceFolder}/src/BST.cpp",
+                "${workspaceFolder}/src/hash.cpp",
+                "${workspaceFolder}/src/timing.cpp",
+                "${workspaceFolder}/src/main.cpp",
+                "-o",
+                "${workspaceFolder}/bin/debug.out",
+                "--debug"
             ],
             "group": {
-              "kind": "build",
-              "isDefault": true
-            }
-          }
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
     ]
 }
