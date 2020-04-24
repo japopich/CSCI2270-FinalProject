@@ -70,9 +70,9 @@ void Timing::timing_BST()
     std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
-    std::vector<std::vector<float>> BSTvector;
-    std::vector<float> insertVector;
-    std::vector<float> searchVector;
+    std::vector<std::vector<long long>> BSTvector;
+    std::vector<long long> insertVector;
+    std::vector<long long> searchVector;
 
     // Create the BST Object
     BST bstObject;
@@ -92,7 +92,7 @@ void Timing::timing_BST()
         end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
-        float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
 
         //--------------------------------
@@ -116,7 +116,7 @@ void Timing::timing_BST()
         end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
-        float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
     }
 
@@ -141,9 +141,9 @@ void Timing::timing_LL()
     std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
-    std::vector<std::vector<float>> LLvector;
-    std::vector<float> insertVector;
-    std::vector<float> searchVector;
+    std::vector<std::vector<long long>> LLvector;
+    std::vector<long long> insertVector;
+    std::vector<long long> searchVector;
 
     for (int k = 0; k < 400; k++)
     {
@@ -155,8 +155,8 @@ void Timing::timing_LL()
         }
         end = std::chrono::steady_clock::now();
 
-        /// Store the average insert time so divide the count by 100 to get average and then store in respective vector
-        float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        // Store the average insert time so divide the count by 100 to get average and then store in respective vector
+        long long avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
 
         // Search for 100 random elements and time the operation
@@ -184,7 +184,7 @@ void Timing::timing_LL()
         end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
-        float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
     }
 
@@ -208,9 +208,9 @@ void Timing::timing_LinHash()
     std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
-    std::vector<std::vector<float>> hashVector;
-    std::vector<float> insertVector;
-    std::vector<float> searchVector;
+    std::vector<std::vector<long long>> hashVector;
+    std::vector<long long> insertVector;
+    std::vector<long long> searchVector;
 
     for (int k = 0; k < 400; k++)
     {
@@ -223,7 +223,7 @@ void Timing::timing_LinHash()
         end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
-        float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
 
         // Search for 100 random elements and time the operation
@@ -252,7 +252,7 @@ void Timing::timing_LinHash()
         end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
-        float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
     }
 
@@ -276,9 +276,9 @@ void Timing::timing_QuadHash()
     std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
-    std::vector<std::vector<float>> hashVector;
-    std::vector<float> insertVector;
-    std::vector<float> searchVector;
+    std::vector<std::vector<long long>> hashVector;
+    std::vector<long long> insertVector;
+    std::vector<long long> searchVector;
 
     for (int k = 0; k < 400; k++)
     {
@@ -291,7 +291,7 @@ void Timing::timing_QuadHash()
         end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
-        float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
 
         // Search for 100 random elements and time the operation
@@ -320,7 +320,7 @@ void Timing::timing_QuadHash()
         end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
-        float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
     }
 
@@ -344,9 +344,9 @@ void Timing::timing_LLHash()
     std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
-    std::vector<std::vector<float>> hashVector;
-    std::vector<float> insertVector;
-    std::vector<float> searchVector;
+    std::vector<std::vector<long long>> hashVector;
+    std::vector<long long> insertVector;
+    std::vector<long long> searchVector;
 
     for (int k = 0; k < 400; k++)
     {
@@ -359,7 +359,7 @@ void Timing::timing_LLHash()
         end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
-        float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
 
         // Search for 100 random elements and time the operation
@@ -388,7 +388,7 @@ void Timing::timing_LLHash()
         end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
-        float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        long long avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
     }
 
