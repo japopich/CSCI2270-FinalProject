@@ -28,6 +28,12 @@ class Timing
         // Layer 3:     Insert-Search       Insert-Search       Insert-Search
         std::vector<std::vector<std::vector<float>>> recordedTime;
 
+        void LL_outHelper();                    // Helper function to output the timing results for LinkedList
+        void BST_outHelper();                   // Helper function to output the timing results for Binary Search Tree
+        void LLHash_outHelper();                // Helper function to output the timing results for Chaining Hash Table
+        void LinHash_outHelper();               // Helper function to output the timing results for Linear Probing Hash Table
+        void QuadHash_outHelper();              // Helper function to output the timing results for Quadratic Probing Hash Table
+
     public:
         Timing();                               // Default Constructor
         Timing(std::string file);               // File Loading Constructor

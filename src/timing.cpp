@@ -55,7 +55,7 @@ Timing::Timing(std::string file)
     Timing::file.close();
 
     // Seed the random number generator with computer's time
-    srand(time(NULL));
+    std::srand(std::time(nullptr));
 }
 
 // Destructor
@@ -139,6 +139,11 @@ void Timing::timing_LL()
     std::chrono::steady_clock::time_point start;
     std::chrono::steady_clock::time_point end;
 
+    // Create the vectors to store the time values
+    std::vector<std::vector<float>> LLvector;
+    std::vector<float> insertVector;
+    std::vector<float> searchVector;
+
     for (int k = 0; k < 40; k++)
     {
         // Insert 100 elements and time the operation
@@ -149,7 +154,9 @@ void Timing::timing_LL()
         }
         end = std::chrono::steady_clock::now();
 
-        // *** Store insert time ***
+        /// Store the average insert time so divide the count by 100 to get average and then store in respective vector
+        float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        insertVector.push_back(avgInsertTime);
 
         // Search for 100 random elements and time the operation
         int randomIndices[100];
@@ -164,7 +171,6 @@ void Timing::timing_LL()
         for (int i = k * 100; i < (k + 1) * 100; i++)
         {
             key = file_content[randomIndices[i]];
-
             node = list.search(key);
 
             // *** Checks for accuracy of search function, remove for actual testing
@@ -176,8 +182,17 @@ void Timing::timing_LL()
         }
         end = std::chrono::steady_clock::now();
 
-        // *** Store search time divided by 100 ***
+        // Store the average search time so divide the count by 100 to get average and then store in respective vector
+        float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        searchVector.push_back(avgSearchTime);
     }
+
+    // Place the insert and search vectors into the BST vector
+    LLvector.push_back(insertVector);
+    LLvector.push_back(searchVector);
+
+    // Place the BSTvector into the recordedTime vector
+    Timing::recordedTime.push_back(LLvector);
 }
 
 void Timing::timing_LinHash()
@@ -195,6 +210,36 @@ void Timing::timing_LLHash()
     
 }
 
+void Timing::LL_outHelper()
+{
+
+}
+
+void Timing::BST_outHelper()
+{
+    
+}
+
+void Timing::LLHash_outHelper()
+{
+    
+}
+
+void Timing::LinHash_outHelper()
+{
+    
+}
+
+void Timing::QuadHash_outHelper()
+{
+    
+}
+
 void Timing::output2file()
 {
+    std::ofstream LL_out;
+    std::ofstream BST_out;
+    std::ofstream LLHash_out;
+    std::ofstream LinHash_out;
+    std::ofstream QuadHash_out;
 }
