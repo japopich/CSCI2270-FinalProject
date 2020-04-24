@@ -22,9 +22,11 @@ class Timing
         std::ifstream file;                     // Our file ifstream object
         std::vector<int> file_content;          // Will hold all the data to be used with every method
 
-        // Variables to record timing in 100 sample intervals
-        float insert[400];
-        float search[400];
+        // Vector that will hold timing in 100 sample intervals
+        // Layer 1:                             Vector
+        // Layer 2:       BST Vector          LL Vector          Hash Vector
+        // Layer 3:     Insert-Search       Insert-Search       Insert-Search
+        std::vector<std::vector<std::vector<float>>> recordedTime;
 
     public:
         Timing();                               // Default Constructor
@@ -35,6 +37,8 @@ class Timing
         void timing_BST();                      // Timing function for Binary Search Tree
         void timing_LL();                       // Timing function for Linked List
         void timing_Hash();                     // Timing function for Hash Table
+
+        void output2file();                     // Will output the recordedTime vector to respective file
 };
 
 

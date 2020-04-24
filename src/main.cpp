@@ -1,3 +1,7 @@
+/**
+ * @file main.cpp
+ * @brief The main source file for the code bases
+ */
 #include "timing.hpp"
 
 
