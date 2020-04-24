@@ -64,7 +64,16 @@ Timing::~Timing()
 
 void Timing::timing_BST()
 {
+    for (size_t i = 0; i < Timing::file_content.size(); i = i+100)
+    {
+        std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+        for (size_t j = i; j < (i+100); j++)
+        {
 
+        }
+        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+        // std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    }
 }
 
 void Timing::timing_LL()
