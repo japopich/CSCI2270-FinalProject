@@ -8,7 +8,6 @@
 // Default Constructor
 Timing::Timing()
 {
-
 }
 
 // File Loading Constructor
@@ -19,7 +18,7 @@ Timing::Timing(std::string file)
     Timing::file.open(file);
 
     // Check to see if the file is open else return error
-    if(!Timing::file.is_open())
+    if (!Timing::file.is_open())
     {
         std::cout << "Failed to open the file." << std::endl;
         return;
@@ -39,37 +38,38 @@ Timing::Timing(std::string file)
     std::string delimiter = ",";
 
     // Declare our token string that will hold the current string
-	std::string token;
+    std::string token;
 
     // Declare our variable that will keep track of our position
     size_t pos = 0;
 
     // Start the loop placing into the file_content vector
-    while ((pos = data.find(delimiter)) != std::string::npos) 
-	{
-		token = data.substr(0, pos);
-		data.erase(0, pos + delimiter.length());
+    while ((pos = data.find(delimiter)) != std::string::npos)
+    {
+        token = data.substr(0, pos);
+        data.erase(0, pos + delimiter.length());
         Timing::file_content.push_back(std::stoi(token));
     }
 
     // Close the file
     Timing::file.close();
+
+    // Seed the random number generator with computer's time
+    srand(time(NULL));
 }
 
 // Destructor
 Timing::~Timing()
 {
-
 }
 
 void Timing::timing_BST()
 {
-    for (size_t i = 0; i < Timing::file_content.size(); i = i+100)
+    for (size_t i = 0; i < Timing::file_content.size(); i = i + 100)
     {
         std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
-        for (size_t j = i; j < (i+100); j++)
+        for (size_t j = i; j < (i + 100); j++)
         {
-
         }
         std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
         // std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
@@ -78,15 +78,63 @@ void Timing::timing_BST()
 
 void Timing::timing_LL()
 {
+    // Creates a linked list and adds elements to it from file_content, times how long search and insert
+    // operations take as data is added
 
+    LinkedList list;
+
+    // Create time_point objects to keep track of how long operations take
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
+
+    for (int k = 0; k < 40; k++)
+    {
+        // Insert 100 elements and time the operation
+        start = std::chrono::steady_clock::now();
+        for (int i = k * 100; i < (k + 1) * 100; i++)
+        {
+            list.insert(file_content[i]);
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store insert time ***
+
+        // Search for 100 elements and time the operation
+        int index = 0;
+        int key = 0;
+        LLNode *node = nullptr;
+        start = std::chrono::steady_clock::now();
+        for (int i = k * 100; i < (k + 1) * 100; i++)
+        {
+            index = rand() % (k * 100);
+            key = file_content[index];
+
+            node = list.search(key);
+
+            // *** Checks for accuracy of search function, remove for actual testing
+            if (node->key != key)
+            {
+                std::cout << "Linked list search function is incorrect";
+            }
+            // *********************************************************************
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store search time divided by 100 ***
+    }
+
+    std::cout << "Printing took "
+              << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()
+              << "us.\n";
+
+    /* generate secret number between 1 and 10: */
+    int n = rand() % 10 + 1;
 }
 
 void Timing::timing_Hash()
 {
-    
 }
 
 void Timing::output2file()
 {
-
 }
