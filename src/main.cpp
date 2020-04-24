@@ -15,5 +15,10 @@ int main(int argc, char **argv)
     dataSet1.timing_QuadHash();
     
     Timing dataSet2("../DataSets/dataSetB.csv");
+    dataSet2.timing_LL();
+    dataSet2.timing_BST();
+    dataSet2.timing_LLHash();
+    dataSet2.timing_LinHash();
+    dataSet2.timing_QuadHash();
     return 0;
 }
