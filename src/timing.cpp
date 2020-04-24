@@ -354,34 +354,34 @@ void Timing::timing_LLHash()
 
 void Timing::LL_outHelper()
 {
-
+    std::ofstream LL_out("LL_out.csv");
 }
 
 void Timing::BST_outHelper()
 {
-    
+    std::ofstream BST_out("BST_out.csv");
 }
 
 void Timing::LLHash_outHelper()
 {
-    
+    std::ofstream LLHash_out("LLHash_out.csv");
 }
 
 void Timing::LinHash_outHelper()
 {
-    
+    std::ofstream LinHash_out("LinHash_out.csv");
 }
 
 void Timing::QuadHash_outHelper()
 {
-    
+    std::ofstream QuadHash_out("QuadHash_out.csv");
 }
 
 void Timing::output2file()
 {
-    std::ofstream LL_out;
-    std::ofstream BST_out;
-    std::ofstream LLHash_out;
-    std::ofstream LinHash_out;
-    std::ofstream QuadHash_out;
+    Timing::LL_outHelper();
+    Timing::BST_outHelper();
+    Timing::LLHash_outHelper();
+    Timing::LinHash_outHelper();
+    Timing::QuadHash_outHelper();
 }
