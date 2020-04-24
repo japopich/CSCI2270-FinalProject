@@ -9,7 +9,7 @@
 HashTable::HashTable(int size)
 {
     // Declare the dynamic array of node pointers and set tableSize and numOfcollision to 0
-    HashTable::table = new node*[size] {};
+    HashTable::table = new node*[size] {nullptr};
     tableSize = size;
     numOfcollision = 0;
 }
@@ -147,10 +147,12 @@ bool HashTable::insertQuaditem(int key)
         int index = 0;
         while(true)
         {
-            index = nodeIndex + pow(index++,2);
+            index = nodeIndex + pow(index,2);
             index = index % HashTable::tableSize;
+            index++;
             if(HashTable::table[index] == nullptr)
             {
+                std::cout << "hello " << newNode->key << std::endl;
                 HashTable::table[index] = newNode;
                 return true;
             }
@@ -231,8 +233,9 @@ node *HashTable::searchQuadItem(int key)
         int index = 0;
         while (true)
         {
-            index = hashCode + pow(index++,2);
+            index = hashCode + pow(index,2);
             index = index % HashTable::tableSize;
+            index++;
             if (HashTable::table[index] != nullptr)
             {
                 if (HashTable::table[index]->key == key)
