@@ -24,7 +24,7 @@ private:
     int tableSize; // No. of buckets (linked lists)
 
     // Pointer to an array containing buckets
-    node **table;
+    node* *table;
 
     int numOfcollision;
     node *createNode(int key, node *next);
