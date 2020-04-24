@@ -143,7 +143,7 @@ void Timing::timing_LL()
     {
         // Insert 100 elements and time the operation
         start = std::chrono::steady_clock::now();
-        for (int i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             list.insert(file_content[i]);
         }
@@ -153,7 +153,7 @@ void Timing::timing_LL()
 
         // Search for 100 random elements and time the operation
         int randomIndices[100];
-        for (int i = 0; i < 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             randomIndices[i] = rand() % (k * 100);
         }
@@ -161,7 +161,7 @@ void Timing::timing_LL()
         int key = 0;
         LLNode *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (int i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             key = file_content[randomIndices[i]];
 
@@ -182,17 +182,159 @@ void Timing::timing_LL()
 
 void Timing::timing_LinHash()
 {
+    // Creates a hash table using linear probing and adds elements to it from file_content, times how long search and insert
+    // operations take as data is added
 
+    HashTable table(40000);
+
+    // Create time_point objects to keep track of how long operations take
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
+
+    for (int k = 0; k < 40; k++)
+    {
+        // Insert 100 elements and time the operation
+        start = std::chrono::steady_clock::now();
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        {
+            table.insertLinearitem(file_content[i]);
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store insert time ***
+
+        // Search for 100 random elements and time the operation
+        int randomIndices[100];
+        for (size_t i = 0; i < 100; i++)
+        {
+            randomIndices[i] = rand() % (k * 100);
+        }
+
+        int key = 0;
+        node *node = nullptr;
+        start = std::chrono::steady_clock::now();
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        {
+            key = file_content[randomIndices[i]];
+
+            node = table.searchLinearItem(key);
+
+            // *** Checks for accuracy of search function, remove for actual testing
+            if (node->key != key)
+            {
+                std::cout << "Linear hash search function is incorrect";
+            }
+            // *********************************************************************
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store search time divided by 100 ***
+    } 
 }
 
 void Timing::timing_QuadHash()
 {
+    // Creates a hash table using quadratic probing and adds elements to it from file_content, times how long search and insert
+    // operations take as data is added
+
+    HashTable table(40000);
+
+    // Create time_point objects to keep track of how long operations take
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
+
+    for (int k = 0; k < 40; k++)
+    {
+        // Insert 100 elements and time the operation
+        start = std::chrono::steady_clock::now();
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        {
+            table.insertQuaditem(file_content[i]);
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store insert time ***
+
+        // Search for 100 random elements and time the operation
+        int randomIndices[100];
+        for (size_t i = 0; i < 100; i++)
+        {
+            randomIndices[i] = rand() % (k * 100);
+        }
+
+        int key = 0;
+        node *node = nullptr;
+        start = std::chrono::steady_clock::now();
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        {
+            key = file_content[randomIndices[i]];
+
+            node = table.searchQuadItem(key);
+
+            // *** Checks for accuracy of search function, remove for actual testing
+            if (node->key != key)
+            {
+                std::cout << "Quad hash search function is incorrect";
+            }
+            // *********************************************************************
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store search time divided by 100 ***
+    } 
     
 }
 
 void Timing::timing_LLHash()
 {
-    
+    // Creates a hash table using linear probing and adds elements to it from file_content, times how long search and insert
+    // operations take as data is added
+
+    HashTable table(40000);
+
+    // Create time_point objects to keep track of how long operations take
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
+
+    for (int k = 0; k < 40; k++)
+    {
+        // Insert 100 elements and time the operation
+        start = std::chrono::steady_clock::now();
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        {
+            table.insertLLitem(file_content[i]);
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store insert time ***
+
+        // Search for 100 random elements and time the operation
+        int randomIndices[100];
+        for (size_t i = 0; i < 100; i++)
+        {
+            randomIndices[i] = rand() % (k * 100);
+        }
+
+        int key = 0;
+        node *node = nullptr;
+        start = std::chrono::steady_clock::now();
+        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        {
+            key = file_content[randomIndices[i]];
+
+            node = table.searchLLItem(key);
+
+            // *** Checks for accuracy of search function, remove for actual testing
+            if (node->key != key)
+            {
+                std::cout << "LL hash search function is incorrect";
+            }
+            // *********************************************************************
+        }
+        end = std::chrono::steady_clock::now();
+
+        // *** Store search time divided by 100 ***
+    } 
 }
 
 void Timing::output2file()
