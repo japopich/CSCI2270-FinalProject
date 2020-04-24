@@ -1,4 +1,14 @@
 *.code-workspace
 *.json
 /bin/main
-.vscode/
+/bin/debug.out
+/bin/debug.out.dSYM
+/bin/BST_out.csv
+/bin/LinHash_out.csv
+/bin/LLHash_out.csv
+/bin/LL_out.csv
+/bin/QuadHash_out.csv
+
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json

@@ -84,12 +84,12 @@ void Timing::timing_BST()
         //--------------------------------
         // Insert data into the BST and time it.
         //--------------------------------
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t j = i; j < (i + 100); j++)
         {
             bstObject.addNode(Timing::file_content[j]);
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -108,12 +108,12 @@ void Timing::timing_BST()
         }
 
         // Now perform the 100 searches and time it
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (auto &i : keySet)
         {
             bstObject.searchKey(i);
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -145,17 +145,17 @@ void Timing::timing_LL()
     std::vector<float> insertVector;
     std::vector<float> searchVector;
 
-    for (int k = 0; k < 40; k++)
+    for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             list.insert(file_content[i]);
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
-        /// Store the average insert time so divide the count by 100 to get average and then store in respective vector
+        // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
 
@@ -168,20 +168,13 @@ void Timing::timing_LL()
 
         int key = 0;
         LLNode *node = nullptr;
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
             node = list.search(key);
-
-            // *** Checks for accuracy of search function, remove for actual testing
-            if (node->key != key)
-            {
-                std::cout << "Linked list search function is incorrect";
-            }
-            // *********************************************************************
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -212,15 +205,15 @@ void Timing::timing_LinHash()
     std::vector<float> insertVector;
     std::vector<float> searchVector;
 
-    for (int k = 0; k < 40; k++)
+    for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             table.insertLinearitem(file_content[i]);
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -235,7 +228,7 @@ void Timing::timing_LinHash()
 
         int key = 0;
         node *node = nullptr;
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
@@ -249,7 +242,7 @@ void Timing::timing_LinHash()
             }
             // *********************************************************************
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -280,15 +273,15 @@ void Timing::timing_QuadHash()
     std::vector<float> insertVector;
     std::vector<float> searchVector;
 
-    for (int k = 0; k < 40; k++)
+    for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             table.insertQuaditem(file_content[i]);
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -303,7 +296,7 @@ void Timing::timing_QuadHash()
 
         int key = 0;
         node *node = nullptr;
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
@@ -317,7 +310,7 @@ void Timing::timing_QuadHash()
             }
             // *********************************************************************
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -348,15 +341,15 @@ void Timing::timing_LLHash()
     std::vector<float> insertVector;
     std::vector<float> searchVector;
 
-    for (int k = 0; k < 40; k++)
+    for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             table.insertLLitem(file_content[i]);
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -371,7 +364,7 @@ void Timing::timing_LLHash()
 
         int key = 0;
         node *node = nullptr;
-        start = std::chrono::steady_clock::now();
+        start = std::chrono::high_resolution_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
@@ -385,7 +378,7 @@ void Timing::timing_LLHash()
             }
             // *********************************************************************
         }
-        end = std::chrono::steady_clock::now();
+        end = std::chrono::high_resolution_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -407,7 +400,7 @@ void Timing::LL_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[0][0].size(); i++)
     {
-        ss << Timing::recordedTime[0][0][i] << "," << Timing::recordedTime[0][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[0][0][i] << "," << Timing::recordedTime[0][1][i] << "\n";
     }
     LL_out << ss.str();
 
@@ -421,7 +414,7 @@ void Timing::BST_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[1][0].size(); i++)
     {
-        ss << Timing::recordedTime[1][0][i] << "," << Timing::recordedTime[1][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[1][0][i] << "," << Timing::recordedTime[1][1][i] << "\n";
     }
     BST_out << ss.str();
 
@@ -435,7 +428,7 @@ void Timing::LLHash_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[2][0].size(); i++)
     {
-        ss << Timing::recordedTime[2][0][i] << "," << Timing::recordedTime[2][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[2][0][i] << "," << Timing::recordedTime[2][1][i] << "\n";
     }
     LLHash_out << ss.str();
 
@@ -449,7 +442,7 @@ void Timing::LinHash_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[3][0].size(); i++)
     {
-        ss << Timing::recordedTime[3][0][i] << "," << Timing::recordedTime[3][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[3][0][i] << "," << Timing::recordedTime[3][1][i] << "\n";
     }
     LinHash_out << ss.str();
 
@@ -463,7 +456,7 @@ void Timing::QuadHash_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[4][0].size(); i++)
     {
-        ss << Timing::recordedTime[4][0][i] << "," << Timing::recordedTime[4][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[4][0][i] << "," << Timing::recordedTime[4][1][i] << "\n";
     }
     QuadHash_out << ss.str();
 
