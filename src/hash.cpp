@@ -9,7 +9,7 @@
 HashTable::HashTable(int size)
 {
     // Declare the dynamic array of node pointers and set tableSize and numOfcollision to 0
-    table = new node *[size];
+    HashTable::table = new node* [size];
     tableSize = size;
     numOfcollision = 0;
 }
