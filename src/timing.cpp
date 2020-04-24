@@ -400,7 +400,7 @@ void Timing::LL_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[0][0].size(); i++)
     {
-        ss << Timing::recordedTime[0][0][i] << "," << Timing::recordedTime[0][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[0][0][i] << "," << Timing::recordedTime[0][1][i] << "\n";
     }
     LL_out << ss.str();
 
@@ -414,7 +414,7 @@ void Timing::BST_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[1][0].size(); i++)
     {
-        ss << Timing::recordedTime[1][0][i] << "," << Timing::recordedTime[1][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[1][0][i] << "," << Timing::recordedTime[1][1][i] << "\n";
     }
     BST_out << ss.str();
 
@@ -428,7 +428,7 @@ void Timing::LLHash_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[2][0].size(); i++)
     {
-        ss << Timing::recordedTime[2][0][i] << "," << Timing::recordedTime[2][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[2][0][i] << "," << Timing::recordedTime[2][1][i] << "\n";
     }
     LLHash_out << ss.str();
 
@@ -442,7 +442,7 @@ void Timing::LinHash_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[3][0].size(); i++)
     {
-        ss << Timing::recordedTime[3][0][i] << "," << Timing::recordedTime[3][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[3][0][i] << "," << Timing::recordedTime[3][1][i] << "\n";
     }
     LinHash_out << ss.str();
 
@@ -456,7 +456,7 @@ void Timing::QuadHash_outHelper()
 
     for (size_t i = 0; i < Timing::recordedTime[4][0].size(); i++)
     {
-        ss << Timing::recordedTime[4][0][i] << "," << Timing::recordedTime[4][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[4][0][i] << "," << Timing::recordedTime[4][1][i] << "\n";
     }
     QuadHash_out << ss.str();
 

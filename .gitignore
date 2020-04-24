@@ -7,5 +7,6 @@
 /bin/LinHash_out.csv
 /bin/LLHash_out.csv
 /bin/LL_out.csv
+/bin/QuadHash_out.csv
 
 .vscode/
