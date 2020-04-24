@@ -1,6 +1,0 @@
-*.code-workspace
-*.json
-/bin/main
-/bin/debug.out
-/bin/debug.out.dSYM
-.vscode/
