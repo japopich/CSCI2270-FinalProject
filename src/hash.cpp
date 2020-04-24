@@ -145,11 +145,12 @@ bool HashTable::insertQuaditem(int key)
 
         // Loop until the new node is placed
         int index = 0;
+        int i = 1;
         while(true)
         {
-            index = nodeIndex + pow(index,2);
+            index = nodeIndex + pow(i,2);
             index = index % HashTable::tableSize;
-            index++;
+            i++;
             if(HashTable::table[index] == nullptr)
             {
                 std::cout << "hello " << newNode->key << std::endl;
@@ -231,11 +232,12 @@ node *HashTable::searchQuadItem(int key)
     {
         // Iterate through the hash table until the node is found
         int index = 0;
-        while (true)
+        int i = 1;
+        while(true)
         {
-            index = hashCode + pow(index,2);
+            index = hashCode + pow(i,2);
             index = index % HashTable::tableSize;
-            index++;
+            i++;
             if (HashTable::table[index] != nullptr)
             {
                 if (HashTable::table[index]->key == key)
