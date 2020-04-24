@@ -122,13 +122,6 @@ void Timing::timing_LL()
 
         // *** Store search time divided by 100 ***
     }
-
-    std::cout << "Printing took "
-              << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()
-              << "us.\n";
-
-    /* generate secret number between 1 and 10: */
-    int n = rand() % 10 + 1;
 }
 
 void Timing::timing_Hash()
