@@ -76,7 +76,7 @@ bool HashTable::insertLLitem(int key)
         {
             if (head->key == key)
             {
-                std::cout << "Duplicate Key!" << std::endl;
+                std::cout << head->key << " is Duplicate Key! Ignoring... " << std::endl;
                 return false;
             }
             head = head->next;
@@ -227,21 +227,19 @@ node *HashTable::searchQuadItem(int key)
     }
     else
     {
-        int j = 1;
-        int i = hashCode + 1;
         // Iterate through the hash table until the node is found
+        int index = 0;
         while (true)
         {
-            if (HashTable::table[i] != nullptr)
+            index = hashCode + pow(index++,2);
+            index = index % HashTable::tableSize;
+            if (HashTable::table[index] != nullptr)
             {
-                if (HashTable::table[i]->key == key)
+                if (HashTable::table[index]->key == key)
                 {
-                    return HashTable::table[i];
+                    return HashTable::table[index];
                 }
             }
-            
-            i = (i + (j * j)) % HashTable::tableSize;
-            j++;
         }
     }
     return nullptr;

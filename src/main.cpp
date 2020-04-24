@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     dataSet1.timing_BST();
     dataSet1.timing_LLHash();
     dataSet1.timing_LinHash();
-    //dataSet1.timing_QuadHash();
+    dataSet1.timing_QuadHash();
     dataSet1.output2file();
     
     // Timing dataSet2("../DataSets/dataSetB.csv");

@@ -469,5 +469,5 @@ void Timing::output2file()
     Timing::BST_outHelper();
     Timing::LLHash_outHelper();
     Timing::LinHash_outHelper();
-    //Timing::QuadHash_outHelper();
+    Timing::QuadHash_outHelper();
 }
