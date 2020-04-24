@@ -1,26 +1,61 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Custom Debug Build",
-      "type": "shell",
-      "command": "clang++",
-      "args": [
-        "-std=c++17",
-        "-stdlib=libc++",
-        "${workspaceFolder}/src/LinkedList.cpp",
-        "${workspaceFolder}/src/BST.cpp",
-        "${workspaceFolder}/src/hash.cpp",
-        "${workspaceFolder}/src/timing.cpp",
-        "${workspaceFolder}/src/main.cpp",
-        "-o",
-        "${workspaceFolder}/bin/debug.out",
-        "--debug"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Final Project",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-o",
+                "../bin/main",
+                "main.cpp",
+                "timing.cpp",
+                "hash.cpp",
+                "LinkedList.cpp",
+                "BST.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Custom Debug Build",
+            "type": "shell",
+            "command": "clang++",
+            "args": [
+                "-std=c++17",
+                "-stdlib=libc++",
+                "${workspaceFolder}/src/LinkedList.cpp",
+                "${workspaceFolder}/src/BST.cpp",
+                "${workspaceFolder}/src/hash.cpp",
+                "${workspaceFolder}/src/timing.cpp",
+                "${workspaceFolder}/src/main.cpp",
+                "-o",
+                "${workspaceFolder}/bin/debug.out",
+                "--debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "clang++ build active file",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        }
+    ]
 }
