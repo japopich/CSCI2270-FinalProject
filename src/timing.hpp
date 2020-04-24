@@ -26,7 +26,7 @@ class Timing
         // Layer 1:                             Vector
         // Layer 2:       BST Vector          LL Vector          Hash Vector
         // Layer 3:     Insert-Search       Insert-Search       Insert-Search
-        std::vector<std::vector<std::vector<long long>>> recordedTime;
+        std::vector<std::vector<std::vector<float>>> recordedTime;
 
         void LL_outHelper();                    // Helper function to output the timing results for LinkedList
         void BST_outHelper();                   // Helper function to output the timing results for Binary Search Tree
