@@ -180,8 +180,19 @@ void Timing::timing_LL()
     }
 }
 
-void Timing::timing_Hash()
+void Timing::timing_LinHash()
 {
+
+}
+
+void Timing::timing_QuadHash()
+{
+    
+}
+
+void Timing::timing_LLHash()
+{
+    
 }
 
 void Timing::output2file()
