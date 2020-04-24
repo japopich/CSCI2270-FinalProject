@@ -65,15 +65,67 @@ Timing::~Timing()
 
 void Timing::timing_BST()
 {
-    for (size_t i = 0; i < Timing::file_content.size(); i = i + 100)
+    // The chrono timepoint objects that will be used to time the data structures
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
+
+    // Create the vectors to store the time values
+    std::vector<std::vector<float>> BSTvector;
+    std::vector<float> insertVector;
+    std::vector<float> searchVector;
+
+    // Create the BST Object
+    BST bstObject;
+
+    // Insert the Data into the BST and time while doing so using chrono every 100 samples
+    // Also search the BST and time it after every 100
+    for (size_t i = 0; i < Timing::file_content.size(); i = i+100)
     {
-        std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
-        for (size_t j = i; j < (i + 100); j++)
+        //--------------------------------
+        // Insert data into the BST and time it.
+        //--------------------------------
+        start = std::chrono::steady_clock::now();
+        for (size_t j = i; j < (i+100); j++)
         {
+            bstObject.addNode(Timing::file_content[j]);
         }
-        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-        // std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+        end = std::chrono::steady_clock::now();
+
+        // Store the average insert time so divide the count by 100 to get average and then store in respective vector
+        float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        insertVector.push_back(avgInsertTime);
+
+        //--------------------------------
+        // Search the BST and time it.
+        //--------------------------------
+
+        // First create a random vector of 100 datapoint indexes to pull and search
+        std::vector<int> keySet;
+        for (size_t k = 0; k < 100; k++)
+        {
+            int randomindex = rand() % (i+100);
+            keySet.push_back(Timing::file_content[randomindex]);
+        }
+
+        // Now perform the 100 searches and time it
+        start = std::chrono::steady_clock::now();
+        for (auto &i : keySet)
+        {
+            bstObject.searchKey(i);
+        }
+        end = std::chrono::steady_clock::now();
+
+        // Store the average search time so divide the count by 100 to get average and then store in respective vector
+        float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
+        searchVector.push_back(avgSearchTime);
     }
+
+    // Place the insert and search vectors into the BST vector
+    BSTvector.push_back(insertVector);
+    BSTvector.push_back(searchVector);
+
+    // Place the BSTvector into the recordedTime vector
+    Timing::recordedTime.push_back(BSTvector);
 }
 
 void Timing::timing_LL()
