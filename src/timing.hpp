@@ -38,7 +38,7 @@ class Timing
 
     public:
         Timing();                               // Default Constructor
-        Timing(std::string file, int id);       // File Loading Constructor
+        Timing(std::string file, std::string id);       // File Loading Constructor
 
         ~Timing();                              // Default Destructor
 

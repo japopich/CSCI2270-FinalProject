@@ -12,7 +12,7 @@ Timing::Timing()
 
 // File Loading Constructor
 // Places all the contents of the file into a vector for usage
-Timing::Timing(std::string file, int ID)
+Timing::Timing(std::string file, std::string ID)
 {
     // Open the file
     Timing::file.open(file);
