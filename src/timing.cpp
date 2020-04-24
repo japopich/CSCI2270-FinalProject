@@ -161,7 +161,7 @@ void Timing::timing_LL()
         int key = 0;
         LLNode *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
 
@@ -220,7 +220,7 @@ void Timing::timing_LinHash()
         int key = 0;
         node *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
 
@@ -288,7 +288,7 @@ void Timing::timing_QuadHash()
         int key = 0;
         node *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
 
@@ -356,7 +356,7 @@ void Timing::timing_LLHash()
         int key = 0;
         node *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
 
