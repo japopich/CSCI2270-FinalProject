@@ -9,7 +9,7 @@
 HashTable::HashTable(int size)
 {
     // Declare the dynamic array of node pointers and set tableSize and numOfcollision to 0
-    HashTable::table = new node* [size];
+    HashTable::table = new node*[size] {nullptr};
     tableSize = size;
     numOfcollision = 0;
 }
@@ -35,7 +35,7 @@ HashTable::~HashTable()
     }
 
     // Delete the dynamic array
-    delete table;
+    delete[] table;
 }
 
 node *HashTable::createNode(int key, node *next)
@@ -76,7 +76,7 @@ bool HashTable::insertLLitem(int key)
         {
             if (head->key == key)
             {
-                std::cout << "Duplicate Key!" << std::endl;
+                std::cout << head->key << " is Duplicate Key! Ignoring... " << std::endl;
                 return false;
             }
             head = head->next;
@@ -84,16 +84,13 @@ bool HashTable::insertLLitem(int key)
 
         // NO duplicates so append the new node
         head = HashTable::table[nodeIndex]; // Set Head again
-        while ((head != nullptr) && (newNode->key > head->key))
+        while ((head->next != nullptr) && (newNode->key > head->key))
         {
             head = head->next;
         }
 
         // Found the spot, append the new node
-        newNode->next = head;
-        newNode->prev = head->prev;
-        head->prev->next = newNode;
-        head->prev = newNode;
+        head->next = newNode;
         return true;
     }
 }
@@ -150,10 +147,12 @@ bool HashTable::insertQuaditem(int key)
         int index = 0;
         while(true)
         {
-            index = nodeIndex + pow(index++,2);
+            index = nodeIndex + pow(index,2);
             index = index % HashTable::tableSize;
+            index++;
             if(HashTable::table[index] == nullptr)
             {
+                std::cout << "hello " << newNode->key << std::endl;
                 HashTable::table[index] = newNode;
                 return true;
             }
@@ -212,8 +211,8 @@ node *HashTable::searchLinearItem(int key)
                     return HashTable::table[i];
                 }
             }
+            i = (i + 1) % HashTable::tableSize;
         }
-        i = (i + 1) % HashTable::tableSize;
     }
     return nullptr;
 }
@@ -230,21 +229,20 @@ node *HashTable::searchQuadItem(int key)
     }
     else
     {
-        int j = 1;
-        int i = hashCode + 1;
         // Iterate through the hash table until the node is found
+        int index = 0;
         while (true)
         {
-            if (HashTable::table[i] != nullptr)
+            index = hashCode + pow(index,2);
+            index = index % HashTable::tableSize;
+            index++;
+            if (HashTable::table[index] != nullptr)
             {
-                if (HashTable::table[i]->key == key)
+                if (HashTable::table[index]->key == key)
                 {
-                    return HashTable::table[i];
+                    return HashTable::table[index];
                 }
             }
-            
-            i = (i + (j * j)) % HashTable::tableSize;
-            j++;
         }
     }
     return nullptr;
