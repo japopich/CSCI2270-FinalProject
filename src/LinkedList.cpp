@@ -52,6 +52,12 @@ void LinkedList::insert(int newKey)
     newNode->key = newKey;
     newNode->next = nullptr;
 
+    if (LinkedList::head == nullptr)
+    {
+        LinkedList::head = newNode;
+        return;
+    }
+
     LLNode *current = LinkedList::head;
 
     while (current->next != nullptr)

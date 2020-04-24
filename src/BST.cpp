@@ -106,7 +106,7 @@ Node* BST:: addNodeHelper(Node* currNode, int data)
 void BST:: addNode(int data)
 {
     BST::root = addNodeHelper(BST::root, data);
-    std::cout << data << " has been added" << std::endl;
+    //std::cout << data << " has been added" << std::endl;
 }
 
 //-----------------------------------------PRINT TREE (INORDER TRAVERSAL)--------------------------------
