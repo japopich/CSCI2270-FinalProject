@@ -36,10 +36,11 @@ class Timing
 
         void timing_BST();                      // Timing function for Binary Search Tree
         void timing_LL();                       // Timing function for Linked List
-        void timing_Hash();                     // Timing function for Hash Table
+        void timing_LinHash();                  // Timing function for Hash Table
+        void timing_QuadHash();                 // Timing function for Hash Table
+        void timing_LLHash();                   // Timing function for Hash Table
 
         void output2file();                     // Will output the recordedTime vector to respective file
 };
-
 
 #endif

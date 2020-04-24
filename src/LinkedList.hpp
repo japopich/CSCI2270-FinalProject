@@ -19,11 +19,11 @@ private:
 public:
     LinkedList();
     ~LinkedList();
-    void insert(LLNode *prev, int newKey); // Inserts after prev
-    void insert(int newKey);             // Inserts at the end of the list
-    LLNode *search(int key);
-    void displayAll();      // Displays all LLNodes in the list
-    void displayFirst100(); // Displays the first 100 LLNodes in the list
+    void insert(LLNode *prev, int newKey);      // Inserts after prev
+    void insert(int newKey);                    // Inserts at the end of the list
+    LLNode *search(int key);                    // Searches linked list
+    void displayAll();                          // Displays all LLNodes in the list
+    void displayFirst100();                     // Displays the first 100 LLNodes in the list
 };
 
 #endif
