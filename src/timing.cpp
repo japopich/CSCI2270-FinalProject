@@ -79,13 +79,13 @@ void Timing::timing_BST()
 
     // Insert the Data into the BST and time while doing so using chrono every 100 samples
     // Also search the BST and time it after every 100
-    for (size_t i = 0; i < Timing::file_content.size(); i = i+100)
+    for (size_t i = 0; i < Timing::file_content.size(); i = i + 100)
     {
         //--------------------------------
         // Insert data into the BST and time it.
         //--------------------------------
         start = std::chrono::steady_clock::now();
-        for (size_t j = i; j < (i+100); j++)
+        for (size_t j = i; j < (i + 100); j++)
         {
             bstObject.addNode(Timing::file_content[j]);
         }
@@ -103,7 +103,7 @@ void Timing::timing_BST()
         std::vector<int> keySet;
         for (size_t k = 0; k < 100; k++)
         {
-            int randomindex = rand() % (i+100);
+            int randomindex = rand() % (i + 100);
             keySet.push_back(Timing::file_content[randomindex]);
         }
 
@@ -132,6 +132,7 @@ void Timing::timing_LL()
 {
     // Creates a linked list and adds elements to it from file_content, times how long search and insert
     // operations take as data is added
+    int test = file_content[0];
 
     LinkedList list;
 
@@ -162,13 +163,13 @@ void Timing::timing_LL()
         int randomIndices[100];
         for (size_t i = 0; i < 100; i++)
         {
-            randomIndices[i] = rand() % (k * 100);
+            randomIndices[i] = rand() % ((k + 1) * 100);
         }
 
         int key = 0;
         LLNode *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
             node = list.search(key);
@@ -229,13 +230,13 @@ void Timing::timing_LinHash()
         int randomIndices[100];
         for (size_t i = 0; i < 100; i++)
         {
-            randomIndices[i] = rand() % (k * 100);
+            randomIndices[i] = rand() % ((k + 1) * 100);
         }
 
         int key = 0;
         node *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
 
@@ -253,7 +254,7 @@ void Timing::timing_LinHash()
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
-    } 
+    }
 
     // Place the insert and search vectors into the BST vector
     hashVector.push_back(insertVector);
@@ -297,13 +298,13 @@ void Timing::timing_QuadHash()
         int randomIndices[100];
         for (size_t i = 0; i < 100; i++)
         {
-            randomIndices[i] = rand() % (k * 100);
+            randomIndices[i] = rand() % ((k + 1) * 100);
         }
 
         int key = 0;
         node *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
 
@@ -321,8 +322,8 @@ void Timing::timing_QuadHash()
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
-    } 
-    
+    }
+
     // Place the insert and search vectors into the BST vector
     hashVector.push_back(insertVector);
     hashVector.push_back(searchVector);
@@ -365,13 +366,13 @@ void Timing::timing_LLHash()
         int randomIndices[100];
         for (size_t i = 0; i < 100; i++)
         {
-            randomIndices[i] = rand() % (k * 100);
+            randomIndices[i] = rand() % ((k + 1) * 100);
         }
 
         int key = 0;
         node *node = nullptr;
         start = std::chrono::steady_clock::now();
-        for (size_t i = k * 100; i < (k + 1) * 100; i++)
+        for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
 
@@ -389,7 +390,7 @@ void Timing::timing_LLHash()
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
-    } 
+    }
 
     // Place the insert and search vectors into the BST vector
     hashVector.push_back(insertVector);
