@@ -9,7 +9,7 @@
 HashTable::HashTable(int size)
 {
     // Declare the dynamic array of node pointers and set tableSize and numOfcollision to 0
-    HashTable::table = new node* [size];
+    HashTable::table = new node*[size] {};
     tableSize = size;
     numOfcollision = 0;
 }
@@ -35,7 +35,7 @@ HashTable::~HashTable()
     }
 
     // Delete the dynamic array
-    delete table;
+    delete[] table;
 }
 
 node *HashTable::createNode(int key, node *next)
@@ -59,6 +59,7 @@ bool HashTable::insertLLitem(int key)
     // If no node exists at that index append newNode as head
     if (HashTable::table[nodeIndex] == nullptr)
     {
+        std::cout << newNode->key << std::endl;
         newNode->prev = nullptr;
         newNode->next = nullptr;
         HashTable::table[nodeIndex] = newNode;
@@ -91,8 +92,11 @@ bool HashTable::insertLLitem(int key)
 
         // Found the spot, append the new node
         newNode->next = head;
-        newNode->prev = head->prev;
-        head->prev->next = newNode;
+        if(head->prev != nullptr)
+        {
+            newNode->prev = head->prev;
+            head->prev->next = newNode;
+        }
         head->prev = newNode;
         return true;
     }

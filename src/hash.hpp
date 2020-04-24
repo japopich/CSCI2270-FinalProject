@@ -14,8 +14,8 @@ using namespace std;
 struct node
 {
     int key;
-    struct node *next;
-    struct node *prev;
+    struct node *next = nullptr;
+    struct node *prev = nullptr;
 };
 
 class HashTable
