@@ -5,7 +5,7 @@
 
 #include "timing.hpp"
 
-// Constructor
+// Default Constructor
 Timing::Timing()
 {
 
@@ -75,4 +75,9 @@ void Timing::timing_LL()
 void Timing::timing_Hash()
 {
     
+}
+
+void Timing::output2file()
+{
+
 }
