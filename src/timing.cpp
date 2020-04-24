@@ -402,26 +402,71 @@ void Timing::timing_LLHash()
 void Timing::LL_outHelper()
 {
     std::ofstream LL_out("LL_out.csv");
+    std::stringstream ss;
+
+    for (size_t i = 0; i < Timing::recordedTime[0][0].size(); i++)
+    {
+        ss << Timing::recordedTime[0][0][i] << "," << Timing::recordedTime[0][1][i] << "\n";
+    }
+    LL_out << ss.str();
+
+    LL_out.close();
 }
 
 void Timing::BST_outHelper()
 {
     std::ofstream BST_out("BST_out.csv");
+    std::stringstream ss;
+
+    for (size_t i = 0; i < Timing::recordedTime[1][0].size(); i++)
+    {
+        ss << Timing::recordedTime[1][0][i] << "," << Timing::recordedTime[1][1][i] << "\n";
+    }
+    BST_out << ss.str();
+
+    BST_out.close();
 }
 
 void Timing::LLHash_outHelper()
 {
     std::ofstream LLHash_out("LLHash_out.csv");
+    std::stringstream ss;
+
+    for (size_t i = 0; i < Timing::recordedTime[2][0].size(); i++)
+    {
+        ss << Timing::recordedTime[2][0][i] << "," << Timing::recordedTime[2][1][i] << "\n";
+    }
+    LLHash_out << ss.str();
+
+    LLHash_out.close();
 }
 
 void Timing::LinHash_outHelper()
 {
     std::ofstream LinHash_out("LinHash_out.csv");
+    std::stringstream ss;
+
+    for (size_t i = 0; i < Timing::recordedTime[3][0].size(); i++)
+    {
+        ss << Timing::recordedTime[3][0][i] << "," << Timing::recordedTime[3][1][i] << "\n";
+    }
+    LinHash_out << ss.str();
+
+    LinHash_out.close();
 }
 
 void Timing::QuadHash_outHelper()
 {
     std::ofstream QuadHash_out("QuadHash_out.csv");
+    std::stringstream ss;
+
+    for (size_t i = 0; i < Timing::recordedTime[4][0].size(); i++)
+    {
+        ss << Timing::recordedTime[4][0][i] << "," << Timing::recordedTime[4][1][i] << "\n";
+    }
+    QuadHash_out << ss.str();
+
+    QuadHash_out.close();
 }
 
 void Timing::output2file()
