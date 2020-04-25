@@ -3,6 +3,9 @@
 bin/*
 !bin/README.md
 
+MATLAB/*
+!MATLAB/PlotResults.m
+
 .vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
