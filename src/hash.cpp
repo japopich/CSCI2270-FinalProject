@@ -294,5 +294,7 @@ void HashTable::printTable()
 
 int HashTable::getNumOfCollision()
 {
-    return HashTable::numOfcollision;
+    int collisions = HashTable::numOfcollision;
+    HashTable::numOfcollision = 0;
+    return collisions;
 }
