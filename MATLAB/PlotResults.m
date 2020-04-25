@@ -30,37 +30,37 @@ LL_out_2 = table2array(LL_out_2);
 LinHash_out_1 = readtable('../bin/LinHash_out_1.csv');
 LinHash_out_1 = table2array(LinHash_out_1);
 LinHash_Collision_1 = LinHash_out_1(:,3);
-LinHash_Search_1 = LinHash_out_1(:,3);
+LinHash_Search_1 = LinHash_out_1(:,4);
 LinHash_out_1 = LinHash_out_1(:,[1 2]);
 
 LinHash_out_2 = readtable('../bin/LinHash_out_2.csv');
 LinHash_out_2 = table2array(LinHash_out_2);
 LinHash_Collision_2 = LinHash_out_2(:,3);
-LinHash_Search_2 = LinHash_out_2(:,3);
+LinHash_Search_2 = LinHash_out_2(:,4);
 LinHash_out_2 = LinHash_out_2(:,[1 2]);
 
 LLHash_out_1 = readtable('../bin/LLHash_out_1.csv');
 LLHash_out_1 = table2array(LLHash_out_1);
 LLHash_Collision_1 = LLHash_out_1(:,3);
-LLHash_Search_1 = LLHash_out_1(:,3);
+LLHash_Search_1 = LLHash_out_1(:,4);
 LLHash_out_1 = LLHash_out_1(:,[1 2]);
 
 LLHash_out_2 = readtable('../bin/LLHash_out_2.csv');
 LLHash_out_2 = table2array(LLHash_out_2);
 LLHash_Collision_2 = LLHash_out_2(:,3);
-LLHash_Search_2 = LLHash_out_2(:,3);
+LLHash_Search_2 = LLHash_out_2(:,4);
 LLHash_out_2 = LLHash_out_2(:,[1 2]);
 
 QuadHash_out_1 = readtable('../bin/QuadHash_out_1.csv');
 QuadHash_out_1 = table2array(QuadHash_out_1);
 QuadHash_Collision_1 = QuadHash_out_1(:,3);
-QuadHash_Search_1 = QuadHash_out_1(:,3);
+QuadHash_Search_1 = QuadHash_out_1(:,4);
 QuadHash_out_1 = QuadHash_out_1(:,[1 2]);
 
 QuadHash_out_2 = readtable('../bin/QuadHash_out_2.csv');
 QuadHash_out_2 = table2array(QuadHash_out_2);
 QuadHash_Collision_2 = QuadHash_out_2(:,3);
-QuadHash_Search_2 = QuadHash_out_2(:,3);
+QuadHash_Search_2 = QuadHash_out_2(:,4);
 QuadHash_out_2 = QuadHash_out_2(:,[1 2]);
 
 %% PLOT BST
