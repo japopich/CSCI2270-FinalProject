@@ -12,7 +12,7 @@ Timing::Timing()
 
 // File Loading Constructor
 // Places all the contents of the file into a vector for usage
-Timing::Timing(std::string file)
+Timing::Timing(std::string file, std::string ID)
 {
     // Open the file
     Timing::file.open(file);
@@ -53,6 +53,9 @@ Timing::Timing(std::string file)
 
     // Close the file
     Timing::file.close();
+
+    // Set Class ID
+    Timing::id = ID;
 
     // Seed the random number generator with computer's time
     std::srand(std::time(nullptr));
@@ -203,7 +206,10 @@ void Timing::timing_LinHash()
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
     std::vector<float> insertVector;
+    std::vector<float> insertCollisionsVector;
+
     std::vector<float> searchVector;
+    std::vector<float> searchCollisionsVector;
 
     for (int k = 0; k < 400; k++)
     {
@@ -218,6 +224,9 @@ void Timing::timing_LinHash()
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
+
+        int insertCollisions = table.getNumOfCollision();
+        insertCollisionsVector.push_back(insertCollisions);
 
         // Search for 100 random elements and time the operation
         int randomIndices[100];
@@ -247,11 +256,16 @@ void Timing::timing_LinHash()
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
+
+        int searchCollisions = table.getNumOfCollision();
+        searchCollisionsVector.push_back(searchCollisions);
     }
 
     // Place the insert and search vectors into the BST vector
     hashVector.push_back(insertVector);
     hashVector.push_back(searchVector);
+    hashVector.push_back(insertCollisionsVector);
+    hashVector.push_back(searchCollisionsVector);
 
     // Place the BSTvector into the recordedTime vector
     Timing::recordedTime.push_back(hashVector);
@@ -271,7 +285,10 @@ void Timing::timing_QuadHash()
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
     std::vector<float> insertVector;
+    std::vector<float> insertCollisionsVector;
+
     std::vector<float> searchVector;
+    std::vector<float> searchCollisionsVector;
 
     for (int k = 0; k < 400; k++)
     {
@@ -286,6 +303,9 @@ void Timing::timing_QuadHash()
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
+
+        int insertCollisions = table.getNumOfCollision();
+        insertCollisionsVector.push_back(insertCollisions);
 
         // Search for 100 random elements and time the operation
         int randomIndices[100];
@@ -315,11 +335,16 @@ void Timing::timing_QuadHash()
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
+
+        int searchCollisions = table.getNumOfCollision();
+        searchCollisionsVector.push_back(searchCollisions);
     }
 
     // Place the insert and search vectors into the BST vector
     hashVector.push_back(insertVector);
     hashVector.push_back(searchVector);
+    hashVector.push_back(insertCollisionsVector);
+    hashVector.push_back(searchCollisionsVector);
 
     // Place the BSTvector into the recordedTime vector
     Timing::recordedTime.push_back(hashVector);
@@ -339,7 +364,10 @@ void Timing::timing_LLHash()
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
     std::vector<float> insertVector;
+    std::vector<float> insertCollisionsVector;
+
     std::vector<float> searchVector;
+    std::vector<float> searchCollisionsVector;
 
     for (int k = 0; k < 400; k++)
     {
@@ -354,6 +382,9 @@ void Timing::timing_LLHash()
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         insertVector.push_back(avgInsertTime);
+
+        int insertCollisions = table.getNumOfCollision();
+        insertCollisionsVector.push_back(insertCollisions);
 
         // Search for 100 random elements and time the operation
         int randomIndices[100];
@@ -383,11 +414,16 @@ void Timing::timing_LLHash()
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
         searchVector.push_back(avgSearchTime);
+
+        int searchCollisions = table.getNumOfCollision();
+        searchCollisionsVector.push_back(searchCollisions);
     }
 
     // Place the insert and search vectors into the BST vector
     hashVector.push_back(insertVector);
     hashVector.push_back(searchVector);
+    hashVector.push_back(insertCollisionsVector);
+    hashVector.push_back(searchCollisionsVector);
 
     // Place the BSTvector into the recordedTime vector
     Timing::recordedTime.push_back(hashVector);
@@ -395,7 +431,8 @@ void Timing::timing_LLHash()
 
 void Timing::LL_outHelper()
 {
-    std::ofstream LL_out("LL_out.csv");
+    std::string outFile = "LL_out_" + Timing::id + ".csv";
+    std::ofstream LL_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[0][0].size(); i++)
@@ -409,7 +446,8 @@ void Timing::LL_outHelper()
 
 void Timing::BST_outHelper()
 {
-    std::ofstream BST_out("BST_out.csv");
+    std::string outFile = "BST_out_" + Timing::id + ".csv";
+    std::ofstream BST_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[1][0].size(); i++)
@@ -423,12 +461,14 @@ void Timing::BST_outHelper()
 
 void Timing::LLHash_outHelper()
 {
-    std::ofstream LLHash_out("LLHash_out.csv");
+    std::string outFile = "LLHash_out_" + Timing::id + ".csv";
+    std::ofstream LLHash_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[2][0].size(); i++)
     {
-        ss << std::setprecision(16) << Timing::recordedTime[2][0][i] << "," << Timing::recordedTime[2][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[2][0][i] << "," << Timing::recordedTime[2][1][i] << ","
+                                    << Timing::recordedTime[2][2][i] << "," << Timing::recordedTime[2][3][i] << "\n";
     }
     LLHash_out << ss.str();
 
@@ -437,12 +477,14 @@ void Timing::LLHash_outHelper()
 
 void Timing::LinHash_outHelper()
 {
-    std::ofstream LinHash_out("LinHash_out.csv");
+    std::string outFile = "LinHash_out_" + Timing::id + ".csv";
+    std::ofstream LinHash_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[3][0].size(); i++)
     {
-        ss << std::setprecision(16) << Timing::recordedTime[3][0][i] << "," << Timing::recordedTime[3][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[3][0][i] << "," << Timing::recordedTime[3][1][i] << ","
+                                    << Timing::recordedTime[3][2][i] << "," << Timing::recordedTime[3][3][i] << "\n";
     }
     LinHash_out << ss.str();
 
@@ -451,12 +493,14 @@ void Timing::LinHash_outHelper()
 
 void Timing::QuadHash_outHelper()
 {
-    std::ofstream QuadHash_out("QuadHash_out.csv");
+    std::string outFile = "QuadHash_out_" + Timing::id + ".csv";
+    std::ofstream QuadHash_out(outFile);
     std::stringstream ss;
 
     for (size_t i = 0; i < Timing::recordedTime[4][0].size(); i++)
     {
-        ss << std::setprecision(16) << Timing::recordedTime[4][0][i] << "," << Timing::recordedTime[4][1][i] << "\n";
+        ss << std::setprecision(16) << Timing::recordedTime[4][0][i] << "," << Timing::recordedTime[4][1][i] << ","
+                                    << Timing::recordedTime[4][2][i] << "," << Timing::recordedTime[4][3][i] << "\n";
     }
     QuadHash_out << ss.str();
 

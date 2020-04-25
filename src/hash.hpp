@@ -26,7 +26,7 @@ private:
     // Pointer to an array containing buckets
     node* *table;
 
-    int numOfcollision;
+    int numOfcollision;                    // Will keep track of collision
     node *createNode(int key, node *next);
 
 public:

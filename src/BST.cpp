@@ -86,11 +86,16 @@ Node* BST::createNode(int data)
 /**
     This function will add the data in the tree rooted at currNode.
 **/
-Node* BST:: addNodeHelper(Node* currNode, int data)
+Node* BST::addNodeHelper(Node* currNode, int data)
 {
     if(currNode == nullptr)
     {
         return createNode(data);
+    }
+    if(currNode->key == data)
+    {
+        // std::cout << data << " is Duplicate Key in BST! Ignoring... " << std::endl;
+        return currNode; 
     }
     else if(currNode->key < data)
     {
@@ -103,14 +108,14 @@ Node* BST:: addNodeHelper(Node* currNode, int data)
     return currNode;
 }
 
-void BST:: addNode(int data)
+void BST::addNode(int data)
 {
     BST::root = addNodeHelper(BST::root, data);
     //std::cout << data << " has been added" << std::endl;
 }
 
 //-----------------------------------------PRINT TREE (INORDER TRAVERSAL)--------------------------------
-void BST:: printTreeHelper(Node* currNode)
+void BST::printTreeHelper(Node* currNode)
 {
     if(currNode)
     {
@@ -120,7 +125,7 @@ void BST:: printTreeHelper(Node* currNode)
     }
 }
 
-void BST:: printTree()
+void BST::printTree()
 {
     printTreeHelper(BST::root);
     std::cout << std::endl;

@@ -62,6 +62,11 @@ void LinkedList::insert(int newKey)
 
     while (current->next != nullptr)
     {
+        if(current->key == newKey)
+        {
+            // std::cout << newKey << " is Duplicate Key in Linked List! Ignoring... " << std::endl;
+            return;
+        }
         current = current->next;
     }
 
