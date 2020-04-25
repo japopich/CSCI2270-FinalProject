@@ -76,7 +76,7 @@ bool HashTable::insertLLitem(int key)
         {
             if (head->key == key)
             {
-                std::cout << head->key << " is Duplicate Key! Ignoring... " << std::endl;
+                // std::cout << head->key << " is Duplicate Key in Chaining Hash! Ignoring... " << std::endl;
                 return false;
             }
             head = head->next;
@@ -122,6 +122,11 @@ bool HashTable::insertLinearitem(int key)
                 HashTable::table[nodeIndex] = newNode;
                 return true;
             }
+            if(HashTable::table[nodeIndex]->key == key)
+            {
+                // std::cout << key << " is Duplicate Key in Linear Hash! Ignoring... " << std::endl;
+                return false;
+            }
         }
     }
 }
@@ -150,6 +155,11 @@ bool HashTable::insertQuaditem(int key)
         {
             index = nodeIndex + pow(i,2);
             i++;
+            if(HashTable::table[nodeIndex]->key == key)
+            {
+                // std::cout << key << " is Duplicate Key in Quad Hash! Ignoring... " << std::endl;
+                return false;
+            }
             if(HashTable::table[index] == nullptr)
             {
                 HashTable::table[index] = newNode;
