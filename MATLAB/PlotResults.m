@@ -49,73 +49,93 @@ QuadHash_out_2 = table2array(QuadHash_out_2);
 f1 = figure;
 figure(f1);
 plot(BST_out_1, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f1, '-deps', 'BST_out_A');
+print(f1, '-depsc', 'BST_out_A');
 
 f2 = figure;
 figure(f2);
 plot(BST_out_2, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f2, '-deps', 'BST_out_B');
+print(f2, '-depsc', 'BST_out_B');
 
 %% PLOT Linear Probing Hash table
 f3 = figure;
 figure(f3);
 plot(LinHash_out_1, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f3, '-deps', 'LinHash_out_A');
+print(f3, '-depsc', 'LinHash_out_A');
 
 f4 = figure;
 figure(f4);
 plot(LinHash_out_2, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f4, '-deps', 'LinHash_out_B');
+print(f4, '-depsc', 'LinHash_out_B');
 
 %% PLOT Linked List
 f5 = figure;
 figure(f5);
 plot(LL_out_1, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f5, '-deps', 'LL_out_A');
+print(f5, '-depsc', 'LL_out_A');
 
 f6 = figure;
 figure(f6);
 plot(LL_out_2, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f6, '-deps', 'LL_out_B');
+print(f6, '-depsc', 'LL_out_B');
 
 %% PLOT Chaining Hash Table
 f7 = figure;
 figure(f7);
 plot(LLHash_out_1, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f7, '-deps', 'LLHash_out_A');
+print(f7, '-depsc', 'LLHash_out_A');
 
 f8 = figure;
 figure(f8);
 plot(LLHash_out_2, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f8, '-deps', 'LLHash_out_B');
+print(f8, '-depsc', 'LLHash_out_B');
 
 %% PLOT Quadratic Probing Hash Table
 f9 = figure;
 figure(f9);
 plot(QuadHash_out_1, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f9, '-deps', 'QuadHash_out_A');
+print(f9, '-depsc', 'QuadHash_out_A');
 
 f10 = figure;
 figure(f10);
 plot(QuadHash_out_2, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f10, '-deps', 'QuadHash_out_B');
+print(f10, '-depsc', 'QuadHash_out_B');
