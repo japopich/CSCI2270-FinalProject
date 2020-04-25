@@ -21,17 +21,17 @@ BST_out_1 = table2array(BST_out_1);
 BST_out_2 = readtable('../bin/BST_out_2.csv');
 BST_out_2 = table2array(BST_out_2);
 
-LinHash_out_1 = readtable('../bin/LinHash_out_1.csv');
-LinHash_out_1 = table2array(LinHash_out_1);
-
-LinHash_out_2 = readtable('../bin/LinHash_out_2.csv');
-LinHash_out_2 = table2array(LinHash_out_2);
-
 LL_out_1 = readtable('../bin/LL_out_1.csv');
 LL_out_1 = table2array(LL_out_1);
 
 LL_out_2 = readtable('../bin/LL_out_2.csv');
 LL_out_2 = table2array(LL_out_2);
+
+LinHash_out_1 = readtable('../bin/LinHash_out_1.csv');
+LinHash_out_1 = table2array(LinHash_out_1);
+
+LinHash_out_2 = readtable('../bin/LinHash_out_2.csv');
+LinHash_out_2 = table2array(LinHash_out_2);
 
 LLHash_out_1 = readtable('../bin/LLHash_out_1.csv');
 LLHash_out_1 = table2array(LLHash_out_1);
@@ -64,25 +64,6 @@ legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 % Output the plot to EPS for LATEX
 print(f2, '-depsc', 'BST_out_B');
 
-%% PLOT Linear Probing Hash table
-f3 = figure;
-figure(f3);
-plot(LinHash_out_1, 'LineWidth',1.5);
-xlabel('Number of Elements in Data Structure (10^2)');
-legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
-
-% Output the plot to EPS for LATEX
-print(f3, '-depsc', 'LinHash_out_A');
-
-f4 = figure;
-figure(f4);
-plot(LinHash_out_2, 'LineWidth',1.5);
-xlabel('Number of Elements in Data Structure (10^2)');
-legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
-
-% Output the plot to EPS for LATEX
-print(f4, '-depsc', 'LinHash_out_B');
-
 %% PLOT Linked List
 f5 = figure;
 figure(f5);
@@ -101,6 +82,25 @@ legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
 print(f6, '-depsc', 'LL_out_B');
+
+%% PLOT Linear Probing Hash table
+f3 = figure;
+figure(f3);
+plot(LinHash_out_1, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
+
+% Output the plot to EPS for LATEX
+print(f3, '-depsc', 'LinHash_out_A');
+
+f4 = figure;
+figure(f4);
+plot(LinHash_out_2, 'LineWidth',1.5);
+xlabel('Number of Elements in Data Structure (10^2)');
+legend('Insert Avg Time', 'Search Avg Time', 'Location', 'northwest');
+
+% Output the plot to EPS for LATEX
+print(f4, '-depsc', 'LinHash_out_B');
 
 %% PLOT Chaining Hash Table
 f7 = figure;

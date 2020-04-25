@@ -66,8 +66,7 @@ bool HashTable::insertLLitem(int key)
     }
     else // else append to chained LinkedList
     {
-        HashTable::numOfcollision++; // Add to num of collisions...
-
+        HashTable::numOfcollision++; // Add to the num of collisions
         // Set the node at the Hash Table index as our LinkedList (LL) head
         node *head = HashTable::table[nodeIndex];
 
@@ -87,6 +86,7 @@ bool HashTable::insertLLitem(int key)
         while ((head->next != nullptr) && (newNode->key > head->key))
         {
             head = head->next;
+            HashTable::numOfcollision++; // Add to the num of collisions
         }
 
         // Found the spot, append the new node
@@ -110,11 +110,10 @@ bool HashTable::insertLinearitem(int key)
     }
     else // else start the Linear Collision Method
     {
-        HashTable::numOfcollision++; // Add to the num of collisions
-
         // Loop until the new node is placed
         while (true)
         {
+            HashTable::numOfcollision++; // Add to the num of collisions
             nodeIndex++;
             nodeIndex = nodeIndex % HashTable::tableSize;
             if(HashTable::table[nodeIndex] == nullptr)
@@ -146,13 +145,12 @@ bool HashTable::insertQuaditem(int key)
     }
     else // else start the Quadratic Collision Method
     {
-        HashTable::numOfcollision++; // Add to the num of collisions
-
         // Loop until the new node is placed
         int index = 0;
         int i = 1;
         while(true)
         {
+            HashTable::numOfcollision++; // Add to the num of collisions
             index = nodeIndex + pow(i,2);
             i++;
             if(HashTable::table[nodeIndex]->key == key)
@@ -191,6 +189,7 @@ node *HashTable::searchLLItem(int key)
             else
             {
                 currNode = currNode->next;
+                HashTable::numOfcollision++; // Add to the num of collisions
             }
         }
     }
@@ -221,6 +220,7 @@ node *HashTable::searchLinearItem(int key)
                 }
             }
             i = (i + 1) % HashTable::tableSize;
+            HashTable::numOfcollision++; // Add to the num of collisions
         }
     }
     return nullptr;
@@ -243,6 +243,7 @@ node *HashTable::searchQuadItem(int key)
         int i = 1;
         while(true)
         {
+            HashTable::numOfcollision++; // Add to the num of collisions
             index = hashCode + pow(i,2);
             i++;
             if (HashTable::table[index] != nullptr)
