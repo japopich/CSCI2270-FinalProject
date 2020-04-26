@@ -69,22 +69,13 @@ bool HashTable::insertLLitem(int key)
         HashTable::numOfcollision++; // Add to the num of collisions
         // Set the node at the Hash Table index as our LinkedList (LL) head
         node *head = HashTable::table[nodeIndex];
-
-        // Check for duplicates in LL
-        while (head != nullptr)
+        while ((head->next != nullptr) && (newNode->key > head->key))
         {
             if (head->key == key)
             {
                 // std::cout << head->key << " is Duplicate Key in Chaining Hash! Ignoring... " << std::endl;
                 return false;
             }
-            head = head->next;
-        }
-
-        // NO duplicates so append the new node
-        head = HashTable::table[nodeIndex]; // Set Head again
-        while ((head->next != nullptr) && (newNode->key > head->key))
-        {
             head = head->next;
             HashTable::numOfcollision++; // Add to the num of collisions
         }
