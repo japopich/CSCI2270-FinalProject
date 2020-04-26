@@ -17,58 +17,68 @@ clc
 %% LOAD DATA
 BST_out_1 = readtable('../bin/BST_out_1.csv');
 BST_out_1 = table2array(BST_out_1);
-BST_out_1=rmoutliers(BST_out_1);
 
 BST_out_2 = readtable('../bin/BST_out_2.csv');
 BST_out_2 = table2array(BST_out_2);
-BST_out_2=rmoutliers(BST_out_2);
 
 LL_out_1 = readtable('../bin/LL_out_1.csv');
 LL_out_1 = table2array(LL_out_1);
-LL_out_1=rmoutliers(LL_out_1);
 
 LL_out_2 = readtable('../bin/LL_out_2.csv');
 LL_out_2 = table2array(LL_out_2);
-LL_out_2=rmoutliers(LL_out_2);
 
 LinHash_out_1 = readtable('../bin/LinHash_out_1.csv');
 LinHash_out_1 = table2array(LinHash_out_1);
-LinHash_out_1=rmoutliers(LinHash_out_1);
 LinHash_Collision_1 = LinHash_out_1(:,3);
 LinHash_Search_1 = LinHash_out_1(:,4);
 LinHash_out_1 = LinHash_out_1(:,[1 2]);
 
 LinHash_out_2 = readtable('../bin/LinHash_out_2.csv');
 LinHash_out_2 = table2array(LinHash_out_2);
-LinHash_out_2=rmoutliers(LinHash_out_2);
+
+% Removing outliers for clear data
+LinHash_out_2(325,:) = [];
+LinHash_out_2(380,:) = [];
+LinHash_out_2(382,:) = [];
+
 LinHash_Collision_2 = LinHash_out_2(:,3);
 LinHash_Search_2 = LinHash_out_2(:,4);
 LinHash_out_2 = LinHash_out_2(:,[1 2]);
 
 LLHash_out_1 = readtable('../bin/LLHash_out_1.csv');
 LLHash_out_1 = table2array(LLHash_out_1);
-LLHash_out_1=rmoutliers(LLHash_out_1);
 LLHash_Collision_1 = LLHash_out_1(:,3);
 LLHash_Search_1 = LLHash_out_1(:,4);
 LLHash_out_1 = LLHash_out_1(:,[1 2]);
 
 LLHash_out_2 = readtable('../bin/LLHash_out_2.csv');
 LLHash_out_2 = table2array(LLHash_out_2);
-LLHash_out_2=rmoutliers(LLHash_out_2);
+
+% Removing Outliers for Clear data
+LLHash_out_2(339,:) = [];
+LLHash_out_2(343,:) = [];
+LLHash_out_2(353,:) = [];
+
 LLHash_Collision_2 = LLHash_out_2(:,3);
 LLHash_Search_2 = LLHash_out_2(:,4);
 LLHash_out_2 = LLHash_out_2(:,[1 2]);
 
 QuadHash_out_1 = readtable('../bin/QuadHash_out_1.csv');
 QuadHash_out_1 = table2array(QuadHash_out_1);
-QuadHash_out_1=rmoutliers(QuadHash_out_1);
+
+% Removing outliers for clear data
+QuadHash_out_1(5,:) = [];
+
 QuadHash_Collision_1 = QuadHash_out_1(:,3);
 QuadHash_Search_1 = QuadHash_out_1(:,4);
 QuadHash_out_1 = QuadHash_out_1(:,[1 2]);
 
 QuadHash_out_2 = readtable('../bin/QuadHash_out_2.csv');
 QuadHash_out_2 = table2array(QuadHash_out_2);
-QuadHash_out_2=rmoutliers(QuadHash_out_2);
+
+% Removing outliers for clear data
+QuadHash_out_2(392,:) = [];
+
 QuadHash_Collision_2 = QuadHash_out_2(:,3);
 QuadHash_Search_2 = QuadHash_out_2(:,4);
 QuadHash_out_2 = QuadHash_out_2(:,[1 2]);
