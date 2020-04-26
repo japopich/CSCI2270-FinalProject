@@ -39,6 +39,7 @@ LinHash_out_2 = table2array(LinHash_out_2);
 % Removing outliers for clear data
 LinHash_out_2(325,:) = [];
 LinHash_out_2(380,:) = [];
+LinHash_out_2(381,:) = [];
 LinHash_out_2(382,:) = [];
 
 LinHash_Collision_2 = LinHash_out_2(:,3);
