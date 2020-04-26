@@ -401,6 +401,13 @@ void Timing::timing_LLHash()
             key = file_content[randomIndices[i]];
 
             node = table.searchLLItem(key);
+
+            // *** Checks for accuracy of search function, remove for actual testing
+            if (node->key != key)
+            {
+                std::cout << "LL hash search function is incorrect";
+            }
+            // *********************************************************************
         }
         end = std::chrono::steady_clock::now();
 
