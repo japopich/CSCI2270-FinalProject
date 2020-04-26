@@ -69,8 +69,8 @@ Timing::~Timing()
 void Timing::timing_BST()
 {
     // The chrono timepoint objects that will be used to time the data structures
-    std::chrono::high_resolution_clock::time_point start;
-    std::chrono::high_resolution_clock::time_point end;
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> BSTvector;
@@ -87,12 +87,12 @@ void Timing::timing_BST()
         //--------------------------------
         // Insert data into the BST and time it.
         //--------------------------------
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t j = i; j < (i + 100); j++)
         {
             bstObject.addNode(Timing::file_content[j]);
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -111,12 +111,12 @@ void Timing::timing_BST()
         }
 
         // Now perform the 100 searches and time it
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (auto &i : keySet)
         {
             bstObject.searchKey(i);
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -140,8 +140,8 @@ void Timing::timing_LL()
     LinkedList list;
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::high_resolution_clock::time_point start;
-    std::chrono::high_resolution_clock::time_point end;
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> LLvector;
@@ -151,12 +151,12 @@ void Timing::timing_LL()
     for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             list.insert(file_content[i]);
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -171,13 +171,13 @@ void Timing::timing_LL()
 
         int key = 0;
         LLNode *node = nullptr;
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
             node = list.search(key);
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -200,8 +200,8 @@ void Timing::timing_LinHash()
     HashTable table(40000);
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::high_resolution_clock::time_point start;
-    std::chrono::high_resolution_clock::time_point end;
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
@@ -214,12 +214,12 @@ void Timing::timing_LinHash()
     for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             table.insertLinearitem(file_content[i]);
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -237,7 +237,7 @@ void Timing::timing_LinHash()
 
         int key = 0;
         node *node = nullptr;
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
@@ -251,7 +251,7 @@ void Timing::timing_LinHash()
             }
             // *********************************************************************
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -279,8 +279,8 @@ void Timing::timing_QuadHash()
     HashTable table(40000);
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::high_resolution_clock::time_point start;
-    std::chrono::high_resolution_clock::time_point end;
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
@@ -293,12 +293,12 @@ void Timing::timing_QuadHash()
     for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             table.insertQuaditem(file_content[i]);
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -316,7 +316,7 @@ void Timing::timing_QuadHash()
 
         int key = 0;
         node *node = nullptr;
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
@@ -330,7 +330,7 @@ void Timing::timing_QuadHash()
             }
             // *********************************************************************
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -358,8 +358,8 @@ void Timing::timing_LLHash()
     HashTable table(40000);
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::high_resolution_clock::time_point start;
-    std::chrono::high_resolution_clock::time_point end;
+    std::chrono::steady_clock::time_point start;
+    std::chrono::steady_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
@@ -372,12 +372,12 @@ void Timing::timing_LLHash()
     for (int k = 0; k < 400; k++)
     {
         // Insert 100 elements and time the operation
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = k * 100; i < (k + 1) * 100; i++)
         {
             table.insertLLitem(file_content[i]);
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average insert time so divide the count by 100 to get average and then store in respective vector
         float avgInsertTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
@@ -395,7 +395,7 @@ void Timing::timing_LLHash()
 
         int key = 0;
         node *node = nullptr;
-        start = std::chrono::high_resolution_clock::now();
+        start = std::chrono::steady_clock::now();
         for (size_t i = 0; i < 100; i++)
         {
             key = file_content[randomIndices[i]];
@@ -409,7 +409,7 @@ void Timing::timing_LLHash()
             }
             // *********************************************************************
         }
-        end = std::chrono::high_resolution_clock::now();
+        end = std::chrono::steady_clock::now();
 
         // Store the average search time so divide the count by 100 to get average and then store in respective vector
         float avgSearchTime = (std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / 100.f;
