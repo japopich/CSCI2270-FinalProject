@@ -69,8 +69,8 @@ Timing::~Timing()
 void Timing::timing_BST()
 {
     // The chrono timepoint objects that will be used to time the data structures
-    std::chrono::steady_clock::time_point start;
-    std::chrono::steady_clock::time_point end;
+    std::chrono::high_resolution_clock::time_point start;
+    std::chrono::high_resolution_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> BSTvector;
@@ -140,8 +140,8 @@ void Timing::timing_LL()
     LinkedList list;
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::steady_clock::time_point start;
-    std::chrono::steady_clock::time_point end;
+    std::chrono::high_resolution_clock::time_point start;
+    std::chrono::high_resolution_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> LLvector;
@@ -200,8 +200,8 @@ void Timing::timing_LinHash()
     HashTable table(40000);
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::steady_clock::time_point start;
-    std::chrono::steady_clock::time_point end;
+    std::chrono::high_resolution_clock::time_point start;
+    std::chrono::high_resolution_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
@@ -279,8 +279,8 @@ void Timing::timing_QuadHash()
     HashTable table(40000);
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::steady_clock::time_point start;
-    std::chrono::steady_clock::time_point end;
+    std::chrono::high_resolution_clock::time_point start;
+    std::chrono::high_resolution_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
@@ -358,8 +358,8 @@ void Timing::timing_LLHash()
     HashTable table(40000);
 
     // Create time_point objects to keep track of how long operations take
-    std::chrono::steady_clock::time_point start;
-    std::chrono::steady_clock::time_point end;
+    std::chrono::high_resolution_clock::time_point start;
+    std::chrono::high_resolution_clock::time_point end;
 
     // Create the vectors to store the time values
     std::vector<std::vector<float>> hashVector;
