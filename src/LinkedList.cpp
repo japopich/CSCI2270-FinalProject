@@ -3,6 +3,18 @@
  * @brief The main source file for the LinkedList Class
  */
 
+/*********************************************************************/
+/*                                                                   */
+/*                      CSCI2270 - Final Project                     */
+/*                                                                   */
+/*                                                                   */
+/*                           Jason Popich                            */
+/*                        Matthew Januszewski                        */
+/*                                                                   */
+/*                      LINKED LIST SOURCE FILE                      */
+/*                                                                   */
+/*********************************************************************/
+
 #include <iostream>
 #include "LinkedList.hpp"
 

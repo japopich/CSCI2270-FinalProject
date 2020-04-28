@@ -3,6 +3,18 @@
  * @brief The main source file for the BST Class
  */
 
+/*********************************************************************/
+/*                                                                   */
+/*                      CSCI2270 - Final Project                     */
+/*                                                                   */
+/*                                                                   */
+/*                           Jason Popich                            */
+/*                        Matthew Januszewski                        */
+/*                                                                   */
+/*                   BINARY SEARCH TREE SOURCE FILE                  */
+/*                                                                   */
+/*********************************************************************/
+
 #include "BST.hpp"
 #define SPACE_COUNT 10
 

@@ -3,6 +3,18 @@
  * @brief The main source file for the HashTable Class
  */
 
+/*********************************************************************/
+/*                                                                   */
+/*                      CSCI2270 - Final Project                     */
+/*                                                                   */
+/*                                                                   */
+/*                           Jason Popich                            */
+/*                        Matthew Januszewski                        */
+/*                                                                   */
+/*                      HASH TABLES SOURCE FILE                      */
+/*                                                                   */
+/*********************************************************************/
+
 #include "hash.hpp"
 #include <math.h>
 

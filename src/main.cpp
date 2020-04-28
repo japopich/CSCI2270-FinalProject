@@ -2,6 +2,19 @@
  * @file main.cpp
  * @brief The main source file for the code bases
  */
+
+/*********************************************************************/
+/*                                                                   */
+/*                      CSCI2270 - Final Project                     */
+/*                                                                   */
+/*                                                                   */
+/*                           Jason Popich                            */
+/*                        Matthew Januszewski                        */
+/*                                                                   */
+/*                         MAIN SOURCE FILE                          */
+/*                                                                   */
+/*********************************************************************/
+
 #include "timing.hpp"
 
 
