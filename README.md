@@ -11,7 +11,7 @@ The Final Report for this project is located inside the docs folder.
 * Matthew Januszewski
     * Wrote linked list class and defined the linear probing hash and quadratic probing hash functions. 
     * Debugged insert/search functions of linked list, BST, and hash classes. 
-    * Wrote timing functions for hash and linked list.
+    * Wrote timing functions for Hash functions and Linked List.
     * Wrote Final Report.
 * Jason Popich
     * Wrote BST class and Chained Hash Table search/insert.
