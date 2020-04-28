@@ -15,6 +15,13 @@ clear
 clc
 
 %% LOAD DATA
+Dataset_A = readtable('../DataSets/DataSet1.csv');
+Dataset_A = table2array(Dataset_A);
+
+Dataset_B = readtable('../DataSets/DataSet2.csv');
+Dataset_B = table2array(Dataset_B);
+
+
 BST_out_1 = readtable('../bin/BST_out_1.csv');
 BST_out_1 = table2array(BST_out_1);
 
@@ -306,3 +313,16 @@ set(gca, 'YScale', 'log')
 
 % Output the plot to EPS for LATEX
 print(f18, '-depsc', 'SearchSummary');
+
+%% PLOT DATA SETS
+f19 = figure;
+figure(f19);
+hold on
+plot(Dataset_A, 'LineWidth',1.5);
+plot(Dataset_B, 'LineWidth',1.5);
+ylabel('Element Value');
+xlabel('Element position in Dataset');
+legend('Dataset A', 'Dataset B', 'Location', 'northwest');
+
+% Output the plot to EPS for LATEX
+print(f19, '-depsc', 'Dataset Plotting');
