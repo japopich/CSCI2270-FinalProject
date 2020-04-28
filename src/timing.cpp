@@ -3,6 +3,18 @@
  * @brief The timing source file for the timing class
  */
 
+/*********************************************************************/
+/*                                                                   */
+/*                      CSCI2270 - Final Project                     */
+/*                                                                   */
+/*                                                                   */
+/*                           Jason Popich                            */
+/*                        Matthew Januszewski                        */
+/*                                                                   */
+/*                        TIMING SOURCE FILE                         */
+/*                                                                   */
+/*********************************************************************/
+
 #include "timing.hpp"
 
 // Default Constructor
