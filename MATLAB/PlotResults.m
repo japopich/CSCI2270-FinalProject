@@ -325,4 +325,4 @@ xlabel('Element position in Dataset');
 legend('Dataset A', 'Dataset B', 'Location', 'northwest');
 
 % Output the plot to EPS for LATEX
-print(f19, '-depsc', 'Dataset Plotting');
+print(f19, '-depsc', 'Dataset_Plotting');
