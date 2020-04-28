@@ -16,6 +16,8 @@ Timing::Timing(std::string file, std::string ID)
 {
     // Open the file
     Timing::file.open(file);
+    std::string DataFileOut = "../DataSets/DataSet" + ID + ".csv";
+    std::ofstream DataSet(DataFileOut);
 
     // Check to see if the file is open else return error
     if (!Timing::file.is_open())
@@ -26,6 +28,7 @@ Timing::Timing(std::string file, std::string ID)
 
     // Buffer that will hold our data from the file temporarily and allow us to manipulate it
     std::stringstream ss;
+    std::stringstream ss_out;
 
     // Read from the file into the stringstream
     ss << Timing::file.rdbuf();
@@ -49,10 +52,15 @@ Timing::Timing(std::string file, std::string ID)
         token = data.substr(0, pos);
         data.erase(0, pos + delimiter.length());
         Timing::file_content.push_back(std::stoi(token));
+        ss_out << token << "\n";
     }
+
+    // Output dataSet in MATLAB useable form
+    DataSet << ss_out.str();
 
     // Close the file
     Timing::file.close();
+    DataSet.close();
 
     // Set Class ID
     Timing::id = ID;
